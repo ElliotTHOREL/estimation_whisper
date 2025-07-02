@@ -1,0 +1,16 @@
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb-container
+    environment:
+      MARIADB_ROOT_PASSWORD: root_pwd
+      MARIADB_DATABASE: db_audio
+      MARIADB_USER: admin
+      MARIADB_PASSWORD: pwd
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+volumes:
+  mariadb_data: 

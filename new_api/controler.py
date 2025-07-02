@@ -1,7 +1,7 @@
 """ceci est mon script de controller"""
 from time import time
-import services.py as services
-
+import services/services.py as services
+import services/services_database.py as services_database
 
 app = ?
 
@@ -27,4 +27,8 @@ async def load_model(model, language="fr"):
 
 @app.post("/load_dataset"):
 async def load_dataset(nb_audio=5):
-    services.load_dataset(nb_audio)
+    services_database.load_dataset(nb_audio)
+
+@app.post("/delete_dataset")
+async def delete_dataset():
+    services_database.delete_dataset()
