@@ -1,0 +1,1262 @@
+[
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41991594.mp3",
+    "reference": "Ces morceaux ne figurent que sur le pressage vinyle du disque.",
+    "prediction": " C'est morceau de figure que sur le prissage vénile du disque.",
+    "inference_time": 0.19224858283996582
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_42301501.mp3",
+    "reference": "À force de dédain, ils sont polis.",
+    "prediction": " A force de dédengue, ils sont pulis.",
+    "inference_time": 0.10028672218322754
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41976004.mp3",
+    "reference": "Après une courte gêne, il se décida.",
+    "prediction": " Après une courte gène, il se décida.",
+    "inference_time": 0.10281825065612793
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41969314.mp3",
+    "reference": "Les coupes illégales restent cependant fréquentes.",
+    "prediction": " Les couples illégales restent ce pendant fréquente.",
+    "inference_time": 0.12300848960876465
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_42540816.mp3",
+    "reference": "J’ai salué sans enthousiasme l’avènement révolutionnaire de la république en pleine invasion.",
+    "prediction": " J'ai salué sans enthousiasme l'abonnement révolutionnaire de la République ont un en raison.",
+    "inference_time": 0.22085142135620117
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41915448.mp3",
+    "reference": "Sa performance est honorée par les critiques.",
+    "prediction": " Ça performance et ton oreille par l'écritique.",
+    "inference_time": 0.10170745849609375
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41977394.mp3",
+    "reference": "Tenez, le voilà.",
+    "prediction": " Tout n'est nouveau là.",
+    "inference_time": 0.06195974349975586
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_42044531.mp3",
+    "reference": "Dans cette lutte, elle reçoit le soutien du Saint-Empire Romain.",
+    "prediction": " Dans cette lutte, elle reçoit le soutien du satan pire au main.",
+    "inference_time": 0.14484477043151855
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_42480937.mp3",
+    "reference": "Il était si célèbre en Italie qu'il influença une génération entière d’artistes italiens.",
+    "prediction": " Il était si célèbre en Italie qui l'influence a une génération entière d'archiste Italie.",
+    "inference_time": 0.1911640167236328
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_42055143.mp3",
+    "reference": "Un anneau d'intercirculation est installé entre les deux automotrices d'une rame.",
+    "prediction": " On a nous d'intercirculation est installé entre les deux automotrices d'une rame.",
+    "inference_time": 0.16109132766723633
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_42042541.mp3",
+    "reference": "Elle fut édifiée au mais a subi de nombreux remaniements.",
+    "prediction": " Elle fut édifiée au mai à subi de nombreux romanimants.",
+    "inference_time": 0.13270068168640137
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41942082.mp3",
+    "reference": "Le petit-fils se réfugie au palais royal.",
+    "prediction": " Le petit fils se réfugie au baleroyal.",
+    "inference_time": 0.09167194366455078
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_42543752.mp3",
+    "reference": "Il y eut encore un instant de silence.",
+    "prediction": " Il vue encore un instant de silence.",
+    "inference_time": 0.18399810791015625
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_42061906.mp3",
+    "reference": "Toutefois, celui-ci ne reçoit pas de réponse immédiate.",
+    "prediction": " Toutefois, celui-ci ne reçoit pas de réponse immédiate.",
+    "inference_time": 0.21636295318603516
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41969480.mp3",
+    "reference": "Elles remplacent des entourages classiques du métro.",
+    "prediction": " Elle remplace des entourage classique du métro.",
+    "inference_time": 0.13189983367919922
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41952697.mp3",
+    "reference": "Il fut associé à des découvertes importantes en cosmologie observationnelle.",
+    "prediction": " Il fut associé à des découvertes importantes en cosmologie observationales.",
+    "inference_time": 0.15629148483276367
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41986744.mp3",
+    "reference": "un bruissement d'ailes et bientôt tout un remue-menage.",
+    "prediction": " En prise modèle, et bientôt, tout en remueménage.",
+    "inference_time": 0.10498356819152832
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41984245.mp3",
+    "reference": "Et d'aller décrocher, la nuit, au fond des bois",
+    "prediction": " Et d'aller décrocher la nuit au fond des bois.",
+    "inference_time": 0.11189675331115723
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41938967.mp3",
+    "reference": "L'enceinte, ponctuée de cinq tours rondes et d'une tour carrée, a conservé ses mâchicoulis.",
+    "prediction": " L'ensemble ponctuée de 5 tours rondes et d'une tour carré à conserver ces machicoulis.",
+    "inference_time": 0.17215275764465332
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41938968.mp3",
+    "reference": "Il arriva dans l'après-midi, vers trois heures.",
+    "prediction": " Il arrive dans la Prémidi vertroiseur.",
+    "inference_time": 0.10628223419189453
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41963324.mp3",
+    "reference": "Elle appartient à Teck Resources.",
+    "prediction": " Elle appartient à Tech Resources.",
+    "inference_time": 0.062133073806762695
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41963326.mp3",
+    "reference": "Ce trésor de l'art mosan peut être admiré dans l'église de Saint-Martin à Visé.",
+    "prediction": " Ce trésor de l'armoson peut être admiré dans l'église de Saint-Martin à viser.",
+    "inference_time": 0.1698474884033203
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41953291.mp3",
+    "reference": "Le matériel de diffusion et d'enregistrement était situé dans la partie arrière du break.",
+    "prediction": " Le matériel de diffusion est d'un registrement est étitué dans la partie arrière en du break.",
+    "inference_time": 0.1594095230102539
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41953293.mp3",
+    "reference": "Il se forme en visitant les musées et en étudiant les maîtres anciens.",
+    "prediction": " Plus se forment un visite en est musée et en étudiant les mettre en sien.",
+    "inference_time": 0.16311883926391602
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_42555149.mp3",
+    "reference": "Il est clair qu'il déteste Marius.",
+    "prediction": " Il est clair qu'il déteste marieuse.",
+    "inference_time": 0.09453344345092773
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_42555161.mp3",
+    "reference": "Une autre œuvre du même titre est conservée au Musée du Louvre de Paris.",
+    "prediction": " Une autre œuvre du même titre est conservée au musée du Louvre de Paris.",
+    "inference_time": 0.22194910049438477
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41920538.mp3",
+    "reference": "La Chambre des représentants est le parlement monocaméral de Malte.",
+    "prediction": " La chambre des reprises en temps est le parlement monocaméral de Malte.",
+    "inference_time": 0.2829453945159912
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_41920540.mp3",
+    "reference": "Tu les devines toutes.",
+    "prediction": " Tu les deviens tout.",
+    "inference_time": 0.08342337608337402
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_42063587.mp3",
+    "reference": "Nous verrons cela demain.",
+    "prediction": " Nous vireons cela demain.",
+    "inference_time": 0.061080217361450195
+  },
+  {
+    "model": "tiny",
+    "file_id": "common_voice_fr_42063611.mp3",
+    "reference": "Un second point, non négligeable, s'inscrit dans une démarche identique.",
+    "prediction": " Un second point non négligé j'abbe sans se créer dans une démarche identique.",
+    "inference_time": 0.16531991958618164
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41991594.mp3",
+    "reference": "Ces morceaux ne figurent que sur le pressage vinyle du disque.",
+    "prediction": " Ces morceaux ne figurent que sur le pressage vinile du disque.",
+    "inference_time": 0.17368364334106445
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_42301501.mp3",
+    "reference": "À force de dédain, ils sont polis.",
+    "prediction": " A force de dédaing, ils sont policiers.",
+    "inference_time": 0.10753917694091797
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41976004.mp3",
+    "reference": "Après une courte gêne, il se décida.",
+    "prediction": " Après une courte gêne, il se décida.",
+    "inference_time": 0.1371166706085205
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41969314.mp3",
+    "reference": "Les coupes illégales restent cependant fréquentes.",
+    "prediction": " Les coups pesent illégal restent, cependant fréquentes.",
+    "inference_time": 0.16614270210266113
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_42540816.mp3",
+    "reference": "J’ai salué sans enthousiasme l’avènement révolutionnaire de la république en pleine invasion.",
+    "prediction": " J'ai salué sans enthousiasme l'avenement révolutionnaire de la République en peine en vision.",
+    "inference_time": 0.2826204299926758
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41915448.mp3",
+    "reference": "Sa performance est honorée par les critiques.",
+    "prediction": " S'aperforant, c'est honoré par les critiques.",
+    "inference_time": 0.153031587600708
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41977394.mp3",
+    "reference": "Tenez, le voilà.",
+    "prediction": " Tenez le voilà!",
+    "inference_time": 0.07657551765441895
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_42044531.mp3",
+    "reference": "Dans cette lutte, elle reçoit le soutien du Saint-Empire Romain.",
+    "prediction": " Dans cette lutte, elle reçoit le soutien de sa tempide romain.",
+    "inference_time": 0.2165069580078125
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_42480937.mp3",
+    "reference": "Il était si célèbre en Italie qu'il influença une génération entière d’artistes italiens.",
+    "prediction": " Il est testi célèbre en Italie qui l'influenza une génération entière d'archistes italiennes.",
+    "inference_time": 0.33989620208740234
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_42055143.mp3",
+    "reference": "Un anneau d'intercirculation est installé entre les deux automotrices d'une rame.",
+    "prediction": " Un anneau d'intercirculation est installé entre les deux automotrices d'une ram.",
+    "inference_time": 0.20379972457885742
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_42042541.mp3",
+    "reference": "Elle fut édifiée au mais a subi de nombreux remaniements.",
+    "prediction": " Elle fut dédifiée au mai à subi de nombreux romaniments.",
+    "inference_time": 0.1582658290863037
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41942082.mp3",
+    "reference": "Le petit-fils se réfugie au palais royal.",
+    "prediction": " Le petit fils se réfugie au baller Royale.",
+    "inference_time": 0.21976542472839355
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_42543752.mp3",
+    "reference": "Il y eut encore un instant de silence.",
+    "prediction": " Il lui a encore un instant de silence.",
+    "inference_time": 0.14178180694580078
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_42061906.mp3",
+    "reference": "Toutefois, celui-ci ne reçoit pas de réponse immédiate.",
+    "prediction": " Toutefois, celui-ci ne reçoit pas de réponse immédiate.",
+    "inference_time": 0.1754317283630371
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41969480.mp3",
+    "reference": "Elles remplacent des entourages classiques du métro.",
+    "prediction": " Elle remplace des entourages classiques du métro.",
+    "inference_time": 0.1289689540863037
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41952697.mp3",
+    "reference": "Il fut associé à des découvertes importantes en cosmologie observationnelle.",
+    "prediction": " Il fut associé à des découvertes importantes en cosmologie observationnelle.",
+    "inference_time": 0.16920065879821777
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41986744.mp3",
+    "reference": "un bruissement d'ailes et bientôt tout un remue-menage.",
+    "prediction": " Un bruit ce mandel est bientôt tout un remu ménage.",
+    "inference_time": 0.1615157127380371
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41984245.mp3",
+    "reference": "Et d'aller décrocher, la nuit, au fond des bois",
+    "prediction": " Et d'aller décrocher la nuit au fond des bois.",
+    "inference_time": 0.12716007232666016
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41938967.mp3",
+    "reference": "L'enceinte, ponctuée de cinq tours rondes et d'une tour carrée, a conservé ses mâchicoulis.",
+    "prediction": " L'enceinte, pont tué de cinq tours rondes et d'une tour carrée à conserver ses machicoulis.",
+    "inference_time": 0.3180711269378662
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41938968.mp3",
+    "reference": "Il arriva dans l'après-midi, vers trois heures.",
+    "prediction": " Il arrive dans la prémidie vers trois heures.",
+    "inference_time": 0.11189484596252441
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41963324.mp3",
+    "reference": "Elle appartient à Teck Resources.",
+    "prediction": " Elle appartient à Tech Resources.",
+    "inference_time": 0.1570582389831543
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41963326.mp3",
+    "reference": "Ce trésor de l'art mosan peut être admiré dans l'église de Saint-Martin à Visé.",
+    "prediction": " Ce trésor de l'armaison peut être admiré dans l'église de Saint-Martin à viser.",
+    "inference_time": 0.25821471214294434
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41953291.mp3",
+    "reference": "Le matériel de diffusion et d'enregistrement était situé dans la partie arrière du break.",
+    "prediction": " Le matériel de diffusion et d'un registrement étaient situés dans la partie arrière du break.",
+    "inference_time": 0.2050919532775879
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41953293.mp3",
+    "reference": "Il se forme en visitant les musées et en étudiant les maîtres anciens.",
+    "prediction": " Plus se forme, un visiteant les musées et un étudiant les mettre anciens.",
+    "inference_time": 0.1908588409423828
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_42555149.mp3",
+    "reference": "Il est clair qu'il déteste Marius.",
+    "prediction": " Il est clair qu'il déteste Marius?",
+    "inference_time": 0.1876993179321289
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_42555161.mp3",
+    "reference": "Une autre œuvre du même titre est conservée au Musée du Louvre de Paris.",
+    "prediction": " Une autre œuvre du même titre est conservée au musée du Louvre de Paris.",
+    "inference_time": 0.24062871932983398
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41920538.mp3",
+    "reference": "La Chambre des représentants est le parlement monocaméral de Malte.",
+    "prediction": " La chambre des représentants est le Parlement monocaméral de Malte.",
+    "inference_time": 0.22651171684265137
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_41920540.mp3",
+    "reference": "Tu les devines toutes.",
+    "prediction": " Tu les deviens toutes.",
+    "inference_time": 0.06590533256530762
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_42063587.mp3",
+    "reference": "Nous verrons cela demain.",
+    "prediction": " Nous verrons sur le demain.",
+    "inference_time": 0.08428192138671875
+  },
+  {
+    "model": "base",
+    "file_id": "common_voice_fr_42063611.mp3",
+    "reference": "Un second point, non négligeable, s'inscrit dans une démarche identique.",
+    "prediction": " En seconde point, on n'églige d'abstances créées dans une démarchée d'antique.",
+    "inference_time": 0.22560620307922363
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41991594.mp3",
+    "reference": "Ces morceaux ne figurent que sur le pressage vinyle du disque.",
+    "prediction": " Ces morceaux ne figurent que sur le pressage vinyle du disque.",
+    "inference_time": 0.26015353202819824
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_42301501.mp3",
+    "reference": "À force de dédain, ils sont polis.",
+    "prediction": " A force de dédain, ils sont polis.",
+    "inference_time": 0.21476960182189941
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41976004.mp3",
+    "reference": "Après une courte gêne, il se décida.",
+    "prediction": " Après une courte gêne, il se décida.",
+    "inference_time": 0.2572665214538574
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41969314.mp3",
+    "reference": "Les coupes illégales restent cependant fréquentes.",
+    "prediction": " Les coupes illégales restent cependant fréquentes.",
+    "inference_time": 0.25493788719177246
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_42540816.mp3",
+    "reference": "J’ai salué sans enthousiasme l’avènement révolutionnaire de la république en pleine invasion.",
+    "prediction": " J'ai salué sans enthousiasme l'avènement révolutionnaire de la République en veine invasion.",
+    "inference_time": 0.3892691135406494
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41915448.mp3",
+    "reference": "Sa performance est honorée par les critiques.",
+    "prediction": " Sa performance est honorée par les critiques.",
+    "inference_time": 0.19692683219909668
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41977394.mp3",
+    "reference": "Tenez, le voilà.",
+    "prediction": " Tenez le Voila...",
+    "inference_time": 0.12897181510925293
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_42044531.mp3",
+    "reference": "Dans cette lutte, elle reçoit le soutien du Saint-Empire Romain.",
+    "prediction": " Dans cette lutte, elle reçoit le soutien du satan pire romain.",
+    "inference_time": 0.29088687896728516
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_42480937.mp3",
+    "reference": "Il était si célèbre en Italie qu'il influença une génération entière d’artistes italiens.",
+    "prediction": " Il était si célèbre en Italie qu'il influença une génération entière d'artistes italien.",
+    "inference_time": 0.34339213371276855
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_42055143.mp3",
+    "reference": "Un anneau d'intercirculation est installé entre les deux automotrices d'une rame.",
+    "prediction": " Un anneau d'intercirculation est installé entre les deux automotrices d'une rame.",
+    "inference_time": 0.4487769603729248
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_42042541.mp3",
+    "reference": "Elle fut édifiée au mais a subi de nombreux remaniements.",
+    "prediction": " Elle fut tédifiée au mai à subi de nombreux romaniments.",
+    "inference_time": 0.2950477600097656
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41942082.mp3",
+    "reference": "Le petit-fils se réfugie au palais royal.",
+    "prediction": " Le petit fils se réfugie au ballet royal.",
+    "inference_time": 0.18269968032836914
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_42543752.mp3",
+    "reference": "Il y eut encore un instant de silence.",
+    "prediction": " Il y eu encore un instant de silence.",
+    "inference_time": 0.16736912727355957
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_42061906.mp3",
+    "reference": "Toutefois, celui-ci ne reçoit pas de réponse immédiate.",
+    "prediction": " Toutefois, celui-ci ne reçoit pas de réponse immédiate.",
+    "inference_time": 0.2762134075164795
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41969480.mp3",
+    "reference": "Elles remplacent des entourages classiques du métro.",
+    "prediction": " Elle remplace des entourages classiques du métro.",
+    "inference_time": 0.19636774063110352
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41952697.mp3",
+    "reference": "Il fut associé à des découvertes importantes en cosmologie observationnelle.",
+    "prediction": " Il fut associé à des découvertes importantes en cosmologie observationnelle.",
+    "inference_time": 0.2280271053314209
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41986744.mp3",
+    "reference": "un bruissement d'ailes et bientôt tout un remue-menage.",
+    "prediction": " Un bruit se mandèle et bientôt tout un remu ménage.",
+    "inference_time": 0.3621222972869873
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41984245.mp3",
+    "reference": "Et d'aller décrocher, la nuit, au fond des bois",
+    "prediction": " Et d'aller décrocher la nuit au fond des bois.",
+    "inference_time": 0.3515591621398926
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41938967.mp3",
+    "reference": "L'enceinte, ponctuée de cinq tours rondes et d'une tour carrée, a conservé ses mâchicoulis.",
+    "prediction": " L'enceinte ponctuée de cinq tours rondes et d'une tour carrée a conservé ses machicoulis.",
+    "inference_time": 0.5983490943908691
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41938968.mp3",
+    "reference": "Il arriva dans l'après-midi, vers trois heures.",
+    "prediction": " Il arriva dans l'après-midi vers trois heures.",
+    "inference_time": 0.34693098068237305
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41963324.mp3",
+    "reference": "Elle appartient à Teck Resources.",
+    "prediction": " Elle appartient à Tech Resources.",
+    "inference_time": 0.17349553108215332
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41963326.mp3",
+    "reference": "Ce trésor de l'art mosan peut être admiré dans l'église de Saint-Martin à Visé.",
+    "prediction": " Ce trésor de l'Armosan peut être admiré dans l'église de Saint-Martin à Visée.",
+    "inference_time": 0.38005971908569336
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41953291.mp3",
+    "reference": "Le matériel de diffusion et d'enregistrement était situé dans la partie arrière du break.",
+    "prediction": " Le matériel de diffusion et d'un registrement étaient situés dans la partie arrière du break.",
+    "inference_time": 0.30198073387145996
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41953293.mp3",
+    "reference": "Il se forme en visitant les musées et en étudiant les maîtres anciens.",
+    "prediction": " Il se forme en visitant les musées et en étudiant les maîtres anciens.",
+    "inference_time": 0.33067893981933594
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_42555149.mp3",
+    "reference": "Il est clair qu'il déteste Marius.",
+    "prediction": " Il est clair qu'il déteste Marius?",
+    "inference_time": 0.18418550491333008
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_42555161.mp3",
+    "reference": "Une autre œuvre du même titre est conservée au Musée du Louvre de Paris.",
+    "prediction": " Une autre œuvre du même titre est conservée au musée du Louvre de Paris.",
+    "inference_time": 0.2860860824584961
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41920538.mp3",
+    "reference": "La Chambre des représentants est le parlement monocaméral de Malte.",
+    "prediction": " La Chambre des représentants est le Parlement monocaméral de Malte.",
+    "inference_time": 0.30617451667785645
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_41920540.mp3",
+    "reference": "Tu les devines toutes.",
+    "prediction": " Tu les devines toutes.",
+    "inference_time": 0.12531375885009766
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_42063587.mp3",
+    "reference": "Nous verrons cela demain.",
+    "prediction": " Nous verrons cela demain.",
+    "inference_time": 0.11976146697998047
+  },
+  {
+    "model": "small",
+    "file_id": "common_voice_fr_42063611.mp3",
+    "reference": "Un second point, non négligeable, s'inscrit dans une démarche identique.",
+    "prediction": " Un second point non négligeable sans inscrire dans une démarche identique.",
+    "inference_time": 0.2832651138305664
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41991594.mp3",
+    "reference": "Ces morceaux ne figurent que sur le pressage vinyle du disque.",
+    "prediction": " Ces morceaux ne figurent que sur le pressage vinyle du disque.",
+    "inference_time": 0.5269272327423096
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_42301501.mp3",
+    "reference": "À force de dédain, ils sont polis.",
+    "prediction": " À force de dédaigne, ils sont polis.",
+    "inference_time": 0.3134639263153076
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41976004.mp3",
+    "reference": "Après une courte gêne, il se décida.",
+    "prediction": " Après une courte gêne, il se décida.",
+    "inference_time": 0.37537717819213867
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41969314.mp3",
+    "reference": "Les coupes illégales restent cependant fréquentes.",
+    "prediction": " Les coupes illégales restent cependant fréquentes.",
+    "inference_time": 0.6021757125854492
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_42540816.mp3",
+    "reference": "J’ai salué sans enthousiasme l’avènement révolutionnaire de la république en pleine invasion.",
+    "prediction": " J'ai salué sans enthousiasme l'avènement révolutionnaire de la République en vain d'invasion.",
+    "inference_time": 0.8862392902374268
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41915448.mp3",
+    "reference": "Sa performance est honorée par les critiques.",
+    "prediction": " Sa performance est honorée par les critiques.",
+    "inference_time": 0.312532901763916
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41977394.mp3",
+    "reference": "Tenez, le voilà.",
+    "prediction": " Tenez le voilà!",
+    "inference_time": 0.27944374084472656
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_42044531.mp3",
+    "reference": "Dans cette lutte, elle reçoit le soutien du Saint-Empire Romain.",
+    "prediction": " Dans cette lutte, elle reçoit le soutien du Saint-Empire romain.",
+    "inference_time": 0.4976801872253418
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_42480937.mp3",
+    "reference": "Il était si célèbre en Italie qu'il influença une génération entière d’artistes italiens.",
+    "prediction": " Il était si célèbre en Italie qu'il influença une génération entière d'artistes italiens.",
+    "inference_time": 0.6982066631317139
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_42055143.mp3",
+    "reference": "Un anneau d'intercirculation est installé entre les deux automotrices d'une rame.",
+    "prediction": " Un anneau d'intercirculation est installé entre les deux automotrices d'une rame.",
+    "inference_time": 0.6817021369934082
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_42042541.mp3",
+    "reference": "Elle fut édifiée au mais a subi de nombreux remaniements.",
+    "prediction": " Elle fut édifiée au mai, a subi de nombreux remaniements.",
+    "inference_time": 0.48351073265075684
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41942082.mp3",
+    "reference": "Le petit-fils se réfugie au palais royal.",
+    "prediction": " Le petit-fils se réfugie au palais royal.",
+    "inference_time": 0.3792383670806885
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_42543752.mp3",
+    "reference": "Il y eut encore un instant de silence.",
+    "prediction": " Il y eut encore un instant de silence.",
+    "inference_time": 0.3267230987548828
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_42061906.mp3",
+    "reference": "Toutefois, celui-ci ne reçoit pas de réponse immédiate.",
+    "prediction": " Toutefois, celui-ci ne reçoit pas de réponse immédiate.",
+    "inference_time": 0.6215901374816895
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41969480.mp3",
+    "reference": "Elles remplacent des entourages classiques du métro.",
+    "prediction": " Elle remplace des entourages classiques du métro.",
+    "inference_time": 0.45555543899536133
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41952697.mp3",
+    "reference": "Il fut associé à des découvertes importantes en cosmologie observationnelle.",
+    "prediction": " Il fut associé à des découvertes importantes en cosmologie observationnelle.",
+    "inference_time": 0.4879953861236572
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41986744.mp3",
+    "reference": "un bruissement d'ailes et bientôt tout un remue-menage.",
+    "prediction": " Un bruit ce mandel et bientôt tout un remue ménage.",
+    "inference_time": 0.4817171096801758
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41984245.mp3",
+    "reference": "Et d'aller décrocher, la nuit, au fond des bois",
+    "prediction": " et d'aller décrocher la nuit au fond des bois.",
+    "inference_time": 0.3668327331542969
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41938967.mp3",
+    "reference": "L'enceinte, ponctuée de cinq tours rondes et d'une tour carrée, a conservé ses mâchicoulis.",
+    "prediction": " L'enceinte, ponctuée de cinq tours rondes et d'une tour carrée, a conservé ses machicoulis.",
+    "inference_time": 0.7177379131317139
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41938968.mp3",
+    "reference": "Il arriva dans l'après-midi, vers trois heures.",
+    "prediction": " Il arriva dans l'après-midi vers 3 heures.",
+    "inference_time": 0.3552873134613037
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41963324.mp3",
+    "reference": "Elle appartient à Teck Resources.",
+    "prediction": " Elle appartient à Tech Resources.",
+    "inference_time": 0.2260422706604004
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41963326.mp3",
+    "reference": "Ce trésor de l'art mosan peut être admiré dans l'église de Saint-Martin à Visé.",
+    "prediction": " Ce trésor de l'armozan peut être admiré dans l'église de Saint-Martin à Visée.",
+    "inference_time": 0.7160255908966064
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41953291.mp3",
+    "reference": "Le matériel de diffusion et d'enregistrement était situé dans la partie arrière du break.",
+    "prediction": " Le matériel de diffusion et d'enregistrement était situé dans la partie arrière du break.",
+    "inference_time": 0.5592732429504395
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41953293.mp3",
+    "reference": "Il se forme en visitant les musées et en étudiant les maîtres anciens.",
+    "prediction": " Il se forme en visitant les musées et en étudiant les maîtres anciens.",
+    "inference_time": 0.5564234256744385
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_42555149.mp3",
+    "reference": "Il est clair qu'il déteste Marius.",
+    "prediction": " Il est clair qu'il déteste Marius.",
+    "inference_time": 0.4689152240753174
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_42555161.mp3",
+    "reference": "Une autre œuvre du même titre est conservée au Musée du Louvre de Paris.",
+    "prediction": " Une autre œuvre du même titre est conservée au musée du Louvre de Paris.",
+    "inference_time": 0.7071044445037842
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41920538.mp3",
+    "reference": "La Chambre des représentants est le parlement monocaméral de Malte.",
+    "prediction": " La Chambre des représentants et le Parlement monocaméral de Malte",
+    "inference_time": 0.4435462951660156
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_41920540.mp3",
+    "reference": "Tu les devines toutes.",
+    "prediction": " Tu les devines toutes.",
+    "inference_time": 0.20289134979248047
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_42063587.mp3",
+    "reference": "Nous verrons cela demain.",
+    "prediction": " Nous verrons cela demain.",
+    "inference_time": 0.2169961929321289
+  },
+  {
+    "model": "medium",
+    "file_id": "common_voice_fr_42063611.mp3",
+    "reference": "Un second point, non négligeable, s'inscrit dans une démarche identique.",
+    "prediction": " Un second point non négligeable s'inscrit dans une démarche identique.",
+    "inference_time": 0.6952919960021973
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41991594.mp3",
+    "reference": "Ces morceaux ne figurent que sur le pressage vinyle du disque.",
+    "prediction": " Ces morceaux ne figurent que sur le pressage vinyle du disque.",
+    "inference_time": 0.8489387035369873
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_42301501.mp3",
+    "reference": "À force de dédain, ils sont polis.",
+    "prediction": " À force de dédaigne, ils sont polis.",
+    "inference_time": 0.5954365730285645
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41976004.mp3",
+    "reference": "Après une courte gêne, il se décida.",
+    "prediction": " Après une courte gêne, il se décida.",
+    "inference_time": 0.4321005344390869
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41969314.mp3",
+    "reference": "Les coupes illégales restent cependant fréquentes.",
+    "prediction": " Les coupes illégales restent cependant fréquentes.",
+    "inference_time": 0.5351428985595703
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_42540816.mp3",
+    "reference": "J’ai salué sans enthousiasme l’avènement révolutionnaire de la république en pleine invasion.",
+    "prediction": " J'ai salué sans enthousiasme l'avènement révolutionnaire de la République en pleine invasion.",
+    "inference_time": 1.0542593002319336
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41915448.mp3",
+    "reference": "Sa performance est honorée par les critiques.",
+    "prediction": " Sa performance est honorée par les critiques.",
+    "inference_time": 0.44206953048706055
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41977394.mp3",
+    "reference": "Tenez, le voilà.",
+    "prediction": " Tenez le voilà!",
+    "inference_time": 0.2685246467590332
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_42044531.mp3",
+    "reference": "Dans cette lutte, elle reçoit le soutien du Saint-Empire Romain.",
+    "prediction": " Dans cette lutte, elle reçoit le soutien du Saint-Empire romain.",
+    "inference_time": 0.7900140285491943
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_42480937.mp3",
+    "reference": "Il était si célèbre en Italie qu'il influença une génération entière d’artistes italiens.",
+    "prediction": " Il était si célèbre en Italie qu'il influença une génération entière d'artistes italiens.",
+    "inference_time": 1.0220389366149902
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_42055143.mp3",
+    "reference": "Un anneau d'intercirculation est installé entre les deux automotrices d'une rame.",
+    "prediction": " Un anneau d'intercirculation est installé entre les deux automotrices d'une rame.",
+    "inference_time": 0.867699146270752
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_42042541.mp3",
+    "reference": "Elle fut édifiée au mais a subi de nombreux remaniements.",
+    "prediction": " Elle fut édifiée au mai, a subi de nombreux remaniements.",
+    "inference_time": 0.7282111644744873
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41942082.mp3",
+    "reference": "Le petit-fils se réfugie au palais royal.",
+    "prediction": " Le petit-fils se réfugie au palais royal.",
+    "inference_time": 0.5870187282562256
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_42543752.mp3",
+    "reference": "Il y eut encore un instant de silence.",
+    "prediction": " Il y eut encore un instant de silence.",
+    "inference_time": 0.40623974800109863
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_42061906.mp3",
+    "reference": "Toutefois, celui-ci ne reçoit pas de réponse immédiate.",
+    "prediction": " Toutefois, celui-ci ne reçoit pas de réponse immédiate.",
+    "inference_time": 0.6251633167266846
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41969480.mp3",
+    "reference": "Elles remplacent des entourages classiques du métro.",
+    "prediction": " Elle remplace des entourages classiques du métro.",
+    "inference_time": 0.4672107696533203
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41952697.mp3",
+    "reference": "Il fut associé à des découvertes importantes en cosmologie observationnelle.",
+    "prediction": " Il fut associé à des découvertes importantes en cosmologie observationnelle.",
+    "inference_time": 0.6473546028137207
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41986744.mp3",
+    "reference": "un bruissement d'ailes et bientôt tout un remue-menage.",
+    "prediction": " Un bruit se mandèle, et bientôt tout un remue-ménage.",
+    "inference_time": 0.6790614128112793
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41984245.mp3",
+    "reference": "Et d'aller décrocher, la nuit, au fond des bois",
+    "prediction": " Et d'aller décrocher la nuit au fond des bois.",
+    "inference_time": 0.5619723796844482
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41938967.mp3",
+    "reference": "L'enceinte, ponctuée de cinq tours rondes et d'une tour carrée, a conservé ses mâchicoulis.",
+    "prediction": " L'enceinte, ponctuée de cinq tours rondes et d'une tour carrée, a conservé ses machicoulis.",
+    "inference_time": 1.0627596378326416
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41938968.mp3",
+    "reference": "Il arriva dans l'après-midi, vers trois heures.",
+    "prediction": " Il arriva dans l'après-midi vers trois heures.",
+    "inference_time": 0.6501450538635254
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41963324.mp3",
+    "reference": "Elle appartient à Teck Resources.",
+    "prediction": " Elle appartient à TechResources.",
+    "inference_time": 0.5124032497406006
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41963326.mp3",
+    "reference": "Ce trésor de l'art mosan peut être admiré dans l'église de Saint-Martin à Visé.",
+    "prediction": " Ce trésor de l'art mauson peut être admiré dans l'église de Saint-Martin-à-Visé.",
+    "inference_time": 1.080597162246704
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41953291.mp3",
+    "reference": "Le matériel de diffusion et d'enregistrement était situé dans la partie arrière du break.",
+    "prediction": " Le matériel de diffusion et d'enregistrement était situé dans la partie arrière du break.",
+    "inference_time": 0.7908999919891357
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41953293.mp3",
+    "reference": "Il se forme en visitant les musées et en étudiant les maîtres anciens.",
+    "prediction": " Il se forme en visitant les musées et en étudiant les maîtres anciens.",
+    "inference_time": 0.722531795501709
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_42555149.mp3",
+    "reference": "Il est clair qu'il déteste Marius.",
+    "prediction": " Il est clair qu'il déteste Marius.",
+    "inference_time": 0.42400407791137695
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_42555161.mp3",
+    "reference": "Une autre œuvre du même titre est conservée au Musée du Louvre de Paris.",
+    "prediction": " Une autre œuvre du même titre est conservée au musée du Louvre de Paris.",
+    "inference_time": 0.7017219066619873
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41920538.mp3",
+    "reference": "La Chambre des représentants est le parlement monocaméral de Malte.",
+    "prediction": " La chambre des représentants et le parlement monocaméral de Malte.",
+    "inference_time": 0.7382018566131592
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_41920540.mp3",
+    "reference": "Tu les devines toutes.",
+    "prediction": " Tu les devines toutes!",
+    "inference_time": 0.2925264835357666
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_42063587.mp3",
+    "reference": "Nous verrons cela demain.",
+    "prediction": " Nous verrons cela demain",
+    "inference_time": 0.418773889541626
+  },
+  {
+    "model": "large",
+    "file_id": "common_voice_fr_42063611.mp3",
+    "reference": "Un second point, non négligeable, s'inscrit dans une démarche identique.",
+    "prediction": " Un second point non négligeable s'inscrit dans une démarche identique.",
+    "inference_time": 0.6992056369781494
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41991594.mp3",
+    "reference": "Ces morceaux ne figurent que sur le pressage vinyle du disque.",
+    "prediction": " Ces morceaux ne figurent que sur le pressage vinyle du disque.",
+    "inference_time": 0.7003374099731445
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_42301501.mp3",
+    "reference": "À force de dédain, ils sont polis.",
+    "prediction": " À force de dédain, ils sont polis.",
+    "inference_time": 0.4871864318847656
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41976004.mp3",
+    "reference": "Après une courte gêne, il se décida.",
+    "prediction": " Après une courte gêne, il se décida.",
+    "inference_time": 0.5465402603149414
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41969314.mp3",
+    "reference": "Les coupes illégales restent cependant fréquentes.",
+    "prediction": " Les coupes illégales restent cependant fréquentes.",
+    "inference_time": 0.9450292587280273
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_42540816.mp3",
+    "reference": "J’ai salué sans enthousiasme l’avènement révolutionnaire de la république en pleine invasion.",
+    "prediction": " J'ai salué sans enthousiasme l'avènement révolutionnaire de la République en pleine invasion.",
+    "inference_time": 0.9423866271972656
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41915448.mp3",
+    "reference": "Sa performance est honorée par les critiques.",
+    "prediction": " Sa performance est honorée par les critiques?",
+    "inference_time": 0.3817472457885742
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41977394.mp3",
+    "reference": "Tenez, le voilà.",
+    "prediction": " Tenez, le voilà!",
+    "inference_time": 0.30394554138183594
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_42044531.mp3",
+    "reference": "Dans cette lutte, elle reçoit le soutien du Saint-Empire Romain.",
+    "prediction": " Dans cette lutte, elle reçoit le soutien du Saint-Empire romain.",
+    "inference_time": 0.7551238536834717
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_42480937.mp3",
+    "reference": "Il était si célèbre en Italie qu'il influença une génération entière d’artistes italiens.",
+    "prediction": " Il était si célèbre en Italie qu'il influença une génération entière d'artistes italiens.",
+    "inference_time": 0.922947883605957
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_42055143.mp3",
+    "reference": "Un anneau d'intercirculation est installé entre les deux automotrices d'une rame.",
+    "prediction": " Un anneau d'intercirculation est installé entre les deux automotrices d'une rame.",
+    "inference_time": 0.8003301620483398
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_42042541.mp3",
+    "reference": "Elle fut édifiée au mais a subi de nombreux remaniements.",
+    "prediction": " Elle fut édifiée au mai, a subi de nombreux remaniements.",
+    "inference_time": 0.6078298091888428
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41942082.mp3",
+    "reference": "Le petit-fils se réfugie au palais royal.",
+    "prediction": " Le petit-fils se réfugie au palais royal.",
+    "inference_time": 0.5708427429199219
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_42543752.mp3",
+    "reference": "Il y eut encore un instant de silence.",
+    "prediction": " Il y eut encore un instant de silence.",
+    "inference_time": 0.6952860355377197
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_42061906.mp3",
+    "reference": "Toutefois, celui-ci ne reçoit pas de réponse immédiate.",
+    "prediction": " Toutefois, celui-ci ne reçoit pas de réponse immédiate.",
+    "inference_time": 0.6008999347686768
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41969480.mp3",
+    "reference": "Elles remplacent des entourages classiques du métro.",
+    "prediction": " Elle remplace des entourages classiques du métro.",
+    "inference_time": 0.6420230865478516
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41952697.mp3",
+    "reference": "Il fut associé à des découvertes importantes en cosmologie observationnelle.",
+    "prediction": " Il fut associé à des découvertes importantes en cosmologie observationnelle.",
+    "inference_time": 0.9745025634765625
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41986744.mp3",
+    "reference": "un bruissement d'ailes et bientôt tout un remue-menage.",
+    "prediction": " Un bruit se mendèle et bientôt tout un remue ménage.",
+    "inference_time": 0.6858930587768555
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41984245.mp3",
+    "reference": "Et d'aller décrocher, la nuit, au fond des bois",
+    "prediction": " Et d'aller décrocher la nuit au fond des bois.",
+    "inference_time": 0.5843343734741211
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41938967.mp3",
+    "reference": "L'enceinte, ponctuée de cinq tours rondes et d'une tour carrée, a conservé ses mâchicoulis.",
+    "prediction": " L'enceinte, ponctuée de cinq tours rondes et d'une tour carrée, a conservé ses machicoulis.",
+    "inference_time": 1.0139892101287842
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41938968.mp3",
+    "reference": "Il arriva dans l'après-midi, vers trois heures.",
+    "prediction": " Il arriva dans l'après-midi vers trois heures.",
+    "inference_time": 0.5770626068115234
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41963324.mp3",
+    "reference": "Elle appartient à Teck Resources.",
+    "prediction": " Elle appartient à Tech Resources.",
+    "inference_time": 0.41014742851257324
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41963326.mp3",
+    "reference": "Ce trésor de l'art mosan peut être admiré dans l'église de Saint-Martin à Visé.",
+    "prediction": " Ce trésor de l'art mausant peut être admiré dans l'église de Saint-Martin à Vizé.",
+    "inference_time": 1.2740378379821777
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41953291.mp3",
+    "reference": "Le matériel de diffusion et d'enregistrement était situé dans la partie arrière du break.",
+    "prediction": " Le matériel de diffusion et d'enregistrement était situé dans la partie arrière du break.",
+    "inference_time": 0.8859984874725342
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41953293.mp3",
+    "reference": "Il se forme en visitant les musées et en étudiant les maîtres anciens.",
+    "prediction": " Il se forme en visitant les musées et en étudiant les maîtres anciens.",
+    "inference_time": 0.8127398490905762
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_42555149.mp3",
+    "reference": "Il est clair qu'il déteste Marius.",
+    "prediction": " Il est clair qu'il déteste Marius?",
+    "inference_time": 0.49849581718444824
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_42555161.mp3",
+    "reference": "Une autre œuvre du même titre est conservée au Musée du Louvre de Paris.",
+    "prediction": " Une autre œuvre du même titre est conservée au Musée du Louvre de Paris.",
+    "inference_time": 0.726304292678833
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41920538.mp3",
+    "reference": "La Chambre des représentants est le parlement monocaméral de Malte.",
+    "prediction": " La chambre des représentants et le parlement monocaméral de Malte.",
+    "inference_time": 0.6406657695770264
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_41920540.mp3",
+    "reference": "Tu les devines toutes.",
+    "prediction": " Tu les devines toutes!",
+    "inference_time": 0.37123680114746094
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_42063587.mp3",
+    "reference": "Nous verrons cela demain.",
+    "prediction": " Nous verrons cela demain.",
+    "inference_time": 0.5690507888793945
+  },
+  {
+    "model": "large-v3",
+    "file_id": "common_voice_fr_42063611.mp3",
+    "reference": "Un second point, non négligeable, s'inscrit dans une démarche identique.",
+    "prediction": " Un second point non négligeable s'inscrit dans une démarche identique.",
+    "inference_time": 0.7341539859771729
+  }
+]

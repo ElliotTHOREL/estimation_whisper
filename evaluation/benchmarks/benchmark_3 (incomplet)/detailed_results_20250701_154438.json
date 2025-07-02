@@ -1,0 +1,1052 @@
+[
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41991594.mp3",
+    "reference": "Ces morceaux ne figurent que sur le pressage vinyle du disque.",
+    "prediction": "ces morceaux ne figurent que sur le pressage vinil du disque",
+    "inference_time": 1.2423474788665771
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42301501.mp3",
+    "reference": "À force de dédain, ils sont polis.",
+    "prediction": "à force de dédain ils sont polis",
+    "inference_time": 0.7912514209747314
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41976004.mp3",
+    "reference": "Après une courte gêne, il se décida.",
+    "prediction": "après une courte gêne il se décida",
+    "inference_time": 1.0411019325256348
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41969314.mp3",
+    "reference": "Les coupes illégales restent cependant fréquentes.",
+    "prediction": "les coupes illégales restent cependant fréquentes",
+    "inference_time": 1.383265733718872
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42540816.mp3",
+    "reference": "J’ai salué sans enthousiasme l’avènement révolutionnaire de la république en pleine invasion.",
+    "prediction": "jai salué sans enthousiasme lavènement révolutionnaire de la république enpan invasion",
+    "inference_time": 1.0980620384216309
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41915448.mp3",
+    "reference": "Sa performance est honorée par les critiques.",
+    "prediction": "sa performance est honorée par les critiques",
+    "inference_time": 0.6685130596160889
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41977394.mp3",
+    "reference": "Tenez, le voilà.",
+    "prediction": "tenez le voilà",
+    "inference_time": 0.6019072532653809
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42044531.mp3",
+    "reference": "Dans cette lutte, elle reçoit le soutien du Saint-Empire Romain.",
+    "prediction": "dans cette lutte elle reçoit le soutien du sat-empire romain",
+    "inference_time": 1.009727954864502
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42480937.mp3",
+    "reference": "Il était si célèbre en Italie qu'il influença une génération entière d’artistes italiens.",
+    "prediction": "il était si célèbre en italie qu'il influença une génération en tiers d'artiste italien",
+    "inference_time": 1.4244329929351807
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42055143.mp3",
+    "reference": "Un anneau d'intercirculation est installé entre les deux automotrices d'une rame.",
+    "prediction": "un anneau d'intercirculation est installé entre les deux automotrices d'une rame",
+    "inference_time": 1.5624730587005615
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42042541.mp3",
+    "reference": "Elle fut édifiée au mais a subi de nombreux remaniements.",
+    "prediction": "elle fut édifiée au mais a subi de nombreux remoniements",
+    "inference_time": 1.6180038452148438
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41942082.mp3",
+    "reference": "Le petit-fils se réfugie au palais royal.",
+    "prediction": "le petit-fils se réfugie au palais royal",
+    "inference_time": 0.6727368831634521
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42543752.mp3",
+    "reference": "Il y eut encore un instant de silence.",
+    "prediction": "il y eut encore un instant de silence",
+    "inference_time": 0.8076725006103516
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42061906.mp3",
+    "reference": "Toutefois, celui-ci ne reçoit pas de réponse immédiate.",
+    "prediction": "toutefois celui-ci ne reçoit pas de réponse immédiate",
+    "inference_time": 0.8645744323730469
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41969480.mp3",
+    "reference": "Elles remplacent des entourages classiques du métro.",
+    "prediction": "elle remplace des entourages classiques du métro",
+    "inference_time": 0.9839625358581543
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41952697.mp3",
+    "reference": "Il fut associé à des découvertes importantes en cosmologie observationnelle.",
+    "prediction": "il fut associé à des découvertes importantes en cosmologie observationnelle",
+    "inference_time": 0.9758081436157227
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41986744.mp3",
+    "reference": "un bruissement d'ailes et bientôt tout un remue-menage.",
+    "prediction": "un bruissement dalle et bientôt tout un remu ménage",
+    "inference_time": 0.8159768581390381
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41984245.mp3",
+    "reference": "Et d'aller décrocher, la nuit, au fond des bois",
+    "prediction": "et daller décrocher la nuit au fond des bois",
+    "inference_time": 1.0015819072723389
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41938967.mp3",
+    "reference": "L'enceinte, ponctuée de cinq tours rondes et d'une tour carrée, a conservé ses mâchicoulis.",
+    "prediction": "l'enceinte ponctuée de cinq tours rondes et d'une tour carrée à conserve ses mâchiscoulis",
+    "inference_time": 1.1655025482177734
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41938968.mp3",
+    "reference": "Il arriva dans l'après-midi, vers trois heures.",
+    "prediction": "il arriva dans l'après-midi vers trois heures",
+    "inference_time": 0.7475166320800781
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41963324.mp3",
+    "reference": "Elle appartient à Teck Resources.",
+    "prediction": "elle appartient à teke resauses",
+    "inference_time": 0.6645402908325195
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41963326.mp3",
+    "reference": "Ce trésor de l'art mosan peut être admiré dans l'église de Saint-Martin à Visé.",
+    "prediction": "ce trésor de l'art mauzan peut être admiré dans l'église de saint-martin à vizey",
+    "inference_time": 1.0618572235107422
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41953291.mp3",
+    "reference": "Le matériel de diffusion et d'enregistrement était situé dans la partie arrière du break.",
+    "prediction": "le matériel de diffusion et d'enregistrement était situé dans la partie arrière de brake",
+    "inference_time": 1.3104267120361328
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41953293.mp3",
+    "reference": "Il se forme en visitant les musées et en étudiant les maîtres anciens.",
+    "prediction": "il se forme en visitant les musées et en étudiant les maitrinsiens",
+    "inference_time": 1.1708824634552002
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42555149.mp3",
+    "reference": "Il est clair qu'il déteste Marius.",
+    "prediction": "il est clair quil déteste marius",
+    "inference_time": 0.6525952816009521
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42555161.mp3",
+    "reference": "Une autre œuvre du même titre est conservée au Musée du Louvre de Paris.",
+    "prediction": "une autre œuvre du même titre est conservée au musée du louvre de paris",
+    "inference_time": 0.9580795764923096
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41920538.mp3",
+    "reference": "La Chambre des représentants est le parlement monocaméral de Malte.",
+    "prediction": "la chambre des représentants est le parlement monocaméral de malte",
+    "inference_time": 1.3120975494384766
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41920540.mp3",
+    "reference": "Tu les devines toutes.",
+    "prediction": "tu les devines toutes",
+    "inference_time": 0.6207752227783203
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42063587.mp3",
+    "reference": "Nous verrons cela demain.",
+    "prediction": "nous verrons cela demain",
+    "inference_time": 0.5073540210723877
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42063611.mp3",
+    "reference": "Un second point, non négligeable, s'inscrit dans une démarche identique.",
+    "prediction": "un second point non négligeable s'inscrit dans une démarche identique",
+    "inference_time": 0.6657545566558838
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41920547.mp3",
+    "reference": "La Maheude s'était précipitée pour offrir des chaises.",
+    "prediction": "la maheude sétait précipitée pour offrir des chaises",
+    "inference_time": 0.7874188423156738
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41920552.mp3",
+    "reference": "Non, vous pouvez être tranquille, la spéculation ne dévore que les maladroits.",
+    "prediction": "non vous pouvez être tranquille la spéculation ne dévore que les maladroits",
+    "inference_time": 0.9528489112854004
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42255387.mp3",
+    "reference": "Votre théâtre.",
+    "prediction": "votre théâtre",
+    "inference_time": 0.5541183948516846
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42255409.mp3",
+    "reference": "C'est cependant la que le titre de champion du Guatemala est remis en jeu.",
+    "prediction": "c'est cependant là que le titre du champion du guatemala est remis en jeu",
+    "inference_time": 0.8588907718658447
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41931670.mp3",
+    "reference": "Le jeune roi délaisse la ménagerie pour se faire construire sa propre ménagerie expérimentale.",
+    "prediction": "le jeune roi délaisse la ménagerie pour se faire construire sa propre au ménagerie expérimentale",
+    "inference_time": 1.1244854927062988
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41931672.mp3",
+    "reference": "Du calme, enfants.",
+    "prediction": "du calme enfant",
+    "inference_time": 0.6846199035644531
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42009544.mp3",
+    "reference": "L'homme ôta sa casquette et salua humblement le gendarme.",
+    "prediction": "lome ôta sa casquette et saloua humblement les gendarmes",
+    "inference_time": 1.1106138229370117
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42009578.mp3",
+    "reference": "Suivre la pente, c'est aller à la rivière.",
+    "prediction": "suivre lapont s'étallait à la rivière",
+    "inference_time": 0.8165981769561768
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42301458.mp3",
+    "reference": "Records, il se produit maintenant lui-même.",
+    "prediction": "record il se produit maintenant lui-même",
+    "inference_time": 0.77703857421875
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42301460.mp3",
+    "reference": "La nature indépendante de l'organisation l'a amenée à être en conflit avec l'évêque d'Adélaïde.",
+    "prediction": "la nature indépendante de l'organisation l'a amené à être un conflit avec l'évêque d'adélaïde",
+    "inference_time": 1.1686387062072754
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41925596.mp3",
+    "reference": "Après sa retraite sportive, Binder devient entraîneur.",
+    "prediction": "après sa retraite sportive byder devient entraîneur",
+    "inference_time": 1.3729465007781982
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41925606.mp3",
+    "reference": "Les appuis de fenêtre possèdent des larmiers.",
+    "prediction": "les appuis de fenêtres possèdent des larmiés",
+    "inference_time": 0.8624942302703857
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41925609.mp3",
+    "reference": "Elle aime l'équitation, la danse et la natation.",
+    "prediction": "elle aime l'équitation la danse et l'annétation",
+    "inference_time": 0.8630132675170898
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42578644.mp3",
+    "reference": "Allée de hêtres pourpres taillés en cylindre.",
+    "prediction": "allée de hêtre pourpre taillé en cylindre",
+    "inference_time": 0.6894545555114746
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42578660.mp3",
+    "reference": "Comme si la vérité était affaire de dosage.",
+    "prediction": "comme si la vérité était à faire de dosage",
+    "inference_time": 0.7186157703399658
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_42578663.mp3",
+    "reference": "Sur la piste, ils sont rivaux, mais en dehors ils sont inséparables.",
+    "prediction": "sur la piste ils sont rivaux  mais en dehors ils sont inséparables",
+    "inference_time": 1.051607608795166
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41962804.mp3",
+    "reference": "Son écriture est débarrassée de fioritures et d’autres ornements enjoliveurs.",
+    "prediction": "son écriture est débarrassée de furriture et d'autres ornements enjoliveur",
+    "inference_time": 0.8541545867919922
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41962829.mp3",
+    "reference": "À quoi bon la rime?",
+    "prediction": "à quoi bon larime",
+    "inference_time": 0.5361001491546631
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41962830.mp3",
+    "reference": "Le tournoi ne connaît pas de limite d'âge pour l'engagement.",
+    "prediction": "le tournoi ne cronnait pas de limite d'âge pour l'engagement",
+    "inference_time": 0.7182517051696777
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-xlsr",
+    "file_id": "common_voice_fr_41944508.mp3",
+    "reference": "Il est possible de visiter le musée sur rendez-vous de Pâques à la Toussaint.",
+    "prediction": "il est possible de visiter les musées saus rendez-vous despâques à la tuissan",
+    "inference_time": 0.8775782585144043
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41991594.mp3",
+    "reference": "Ces morceaux ne figurent que sur le pressage vinyle du disque.",
+    "prediction": "CES MORCEAUX NE FIGURENT QUE SUR LE PRESSAGE VINIL DU DISQUE",
+    "inference_time": 1.074559211730957
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42301501.mp3",
+    "reference": "À force de dédain, ils sont polis.",
+    "prediction": "À FORCE DE DÉDIN ILS SONT POLIS",
+    "inference_time": 0.7536280155181885
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41976004.mp3",
+    "reference": "Après une courte gêne, il se décida.",
+    "prediction": "APRÈS UNE COURTE GÊNE IL SE DÉCIDA",
+    "inference_time": 0.9489912986755371
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41969314.mp3",
+    "reference": "Les coupes illégales restent cependant fréquentes.",
+    "prediction": "LES COUPES ILLÉGALES RESTENT CEPENDANT FRÉQUENTES",
+    "inference_time": 1.3803818225860596
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42540816.mp3",
+    "reference": "J’ai salué sans enthousiasme l’avènement révolutionnaire de la république en pleine invasion.",
+    "prediction": "JAI SALUÉ SANS ENTHOUSIASME LAVÈNEMENT RÉVOLUTIONNAIRE DE LA RÉPUBLIQUE ANDAINE DINVASION",
+    "inference_time": 1.0834593772888184
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41915448.mp3",
+    "reference": "Sa performance est honorée par les critiques.",
+    "prediction": "SA PERFORMANCE EST HONORÉE PAR LES CRITIQUES",
+    "inference_time": 0.6709737777709961
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41977394.mp3",
+    "reference": "Tenez, le voilà.",
+    "prediction": "TENEZ LE VOILÀ",
+    "inference_time": 0.6021745204925537
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42044531.mp3",
+    "reference": "Dans cette lutte, elle reçoit le soutien du Saint-Empire Romain.",
+    "prediction": "DANS CETTE LUTTE ELLE REÇOIT LE SOUTIEN DU SAINT EMPIRE ROMAIN",
+    "inference_time": 0.7242567539215088
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42480937.mp3",
+    "reference": "Il était si célèbre en Italie qu'il influença une génération entière d’artistes italiens.",
+    "prediction": "IL ÉTAIT SI CÉLÈBRE EN ITALIE QU'IL INFLUENÇA UNE GÉNÉRATION ENTIÈRES D'ARTISTES ITALIENS",
+    "inference_time": 1.1340446472167969
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42055143.mp3",
+    "reference": "Un anneau d'intercirculation est installé entre les deux automotrices d'une rame.",
+    "prediction": "UN NANEAU D'INTERCIRCULATION EST INSTALLÉ ENTRE LES DEUX AUTOMOTRICES D'UNE RAME",
+    "inference_time": 1.476632833480835
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42042541.mp3",
+    "reference": "Elle fut édifiée au mais a subi de nombreux remaniements.",
+    "prediction": "ELLE FUT ÉDIFIÉE AU MA A SUBI DE NOMBREUX REMANIEMENTS",
+    "inference_time": 1.434934377670288
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41942082.mp3",
+    "reference": "Le petit-fils se réfugie au palais royal.",
+    "prediction": "LE PETIT-FILS SE RÉFUGIE AU PALAIS ROYAL",
+    "inference_time": 0.5422408580780029
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42543752.mp3",
+    "reference": "Il y eut encore un instant de silence.",
+    "prediction": "IL EUT ENCORE UN INSTANT DE SILENCE",
+    "inference_time": 0.6701936721801758
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42061906.mp3",
+    "reference": "Toutefois, celui-ci ne reçoit pas de réponse immédiate.",
+    "prediction": "TOUTEFOIS CELUI-CI NE REÇOIT PAS DE RÉPONSE IMMÉDIATE",
+    "inference_time": 0.6936800479888916
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41969480.mp3",
+    "reference": "Elles remplacent des entourages classiques du métro.",
+    "prediction": "ELLE REMPLACE DES ENTOURAGES CLASSIQUES DU MÉTRO",
+    "inference_time": 0.8171772956848145
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41952697.mp3",
+    "reference": "Il fut associé à des découvertes importantes en cosmologie observationnelle.",
+    "prediction": "IL FUT ASSOCIÉ À DES DÉCOUVERTES IMPORTANTES EN COSMOLOGIE OBSERVATIONNELLE",
+    "inference_time": 0.8238468170166016
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41986744.mp3",
+    "reference": "un bruissement d'ailes et bientôt tout un remue-menage.",
+    "prediction": "UN BUISSE MENDELLE ET BIENTÔT TOUT UN REMUMÉNAGE",
+    "inference_time": 0.6042189598083496
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41984245.mp3",
+    "reference": "Et d'aller décrocher, la nuit, au fond des bois",
+    "prediction": "ET DALLER DÉCROCHER LA NUIT AU FOND DES BOIS",
+    "inference_time": 0.7780680656433105
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41938967.mp3",
+    "reference": "L'enceinte, ponctuée de cinq tours rondes et d'une tour carrée, a conservé ses mâchicoulis.",
+    "prediction": "L'ENCEINTE PONCTUÉE DE CINQ TOURS RONDE ET D'UNE TOUR CARRÉE À CONSERVER SES MACHICOULIS",
+    "inference_time": 0.9127068519592285
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41938968.mp3",
+    "reference": "Il arriva dans l'après-midi, vers trois heures.",
+    "prediction": "IL ARRIVA DANS LAPRÈS-MIDI VERS TROIS HEURES",
+    "inference_time": 0.5714209079742432
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41963324.mp3",
+    "reference": "Elle appartient à Teck Resources.",
+    "prediction": "ELLE APPARTIENT À TECKE RISOSES",
+    "inference_time": 0.509223461151123
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41963326.mp3",
+    "reference": "Ce trésor de l'art mosan peut être admiré dans l'église de Saint-Martin à Visé.",
+    "prediction": "CE TRÉSOR DE L'ART MASAN PEUT ÊTRE ADMIRÉ DANS L'ÉGLISE DE SAINT-MARTIN À VISÉ",
+    "inference_time": 0.7870838642120361
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41953291.mp3",
+    "reference": "Le matériel de diffusion et d'enregistrement était situé dans la partie arrière du break.",
+    "prediction": "LE MATÉRIEL DE DIFFUSION ET D'ENREGISTREMENT ÉTAIT SITUÉ DANS LA PARTIE ARIÈRE DE BREPE",
+    "inference_time": 0.9810807704925537
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41953293.mp3",
+    "reference": "Il se forme en visitant les musées et en étudiant les maîtres anciens.",
+    "prediction": "IL SE FORME EN VISITANT LES MUSÉES ET EN ÉTUDIANT LES MÉDERINCIENS",
+    "inference_time": 0.8626108169555664
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42555149.mp3",
+    "reference": "Il est clair qu'il déteste Marius.",
+    "prediction": "IL EST CLAIR QUIL DÉTESTE MARIUS",
+    "inference_time": 0.49273204803466797
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42555161.mp3",
+    "reference": "Une autre œuvre du même titre est conservée au Musée du Louvre de Paris.",
+    "prediction": "UNE AUTRE ŒUVRE DU MÊME TITRE EST CONSERVÉE AU MUSÉE DU LOUVRE DE PARIS",
+    "inference_time": 0.7490570545196533
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41920538.mp3",
+    "reference": "La Chambre des représentants est le parlement monocaméral de Malte.",
+    "prediction": "LA CHAMBRE DES REPRÉSENTANTS EST LE PARLEMENT MONOCAMÉRAL DE MALTE",
+    "inference_time": 0.9848015308380127
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41920540.mp3",
+    "reference": "Tu les devines toutes.",
+    "prediction": "TU LES DEVINES TOUTES",
+    "inference_time": 0.4807426929473877
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42063587.mp3",
+    "reference": "Nous verrons cela demain.",
+    "prediction": "NOUS VERRONS CELA DEMAIN",
+    "inference_time": 0.39389610290527344
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42063611.mp3",
+    "reference": "Un second point, non négligeable, s'inscrit dans une démarche identique.",
+    "prediction": "UN SECOND POINT NON NÉGLIGEABLE S'INSCRIT DANS UNE DÉMARCHE IDENTIQUE",
+    "inference_time": 0.5078773498535156
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41920547.mp3",
+    "reference": "La Maheude s'était précipitée pour offrir des chaises.",
+    "prediction": "LA MAHEUDE SÉTAIT PRÉCIPITÉE POUR OFFRIR DES CHAISES",
+    "inference_time": 0.5992443561553955
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41920552.mp3",
+    "reference": "Non, vous pouvez être tranquille, la spéculation ne dévore que les maladroits.",
+    "prediction": "NON VOUS POUVEZ ÊTRE TRANQUILLE LA SPÉCULATION NE DÉVOQUE QUE LES MALADROITS",
+    "inference_time": 0.7534518241882324
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42255387.mp3",
+    "reference": "Votre théâtre.",
+    "prediction": "VOTRE THÉÂTRE",
+    "inference_time": 0.43451786041259766
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42255409.mp3",
+    "reference": "C'est cependant la que le titre de champion du Guatemala est remis en jeu.",
+    "prediction": "C'EST CEPENDANT LÀ QUE LE TITRE DU CHAMPION DU GUATEMALA EST REMIS EN JEU",
+    "inference_time": 0.64878249168396
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41931670.mp3",
+    "reference": "Le jeune roi délaisse la ménagerie pour se faire construire sa propre ménagerie expérimentale.",
+    "prediction": "LE JEUNE ROI DÉLAISSE LA MÉNAGERIE POUR SE FAIRE CONSTRUIRE SA PROPRE MÉNAGERIE EXPÉRIMENTALE",
+    "inference_time": 0.8644249439239502
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41931672.mp3",
+    "reference": "Du calme, enfants.",
+    "prediction": "DU CALME ENFANT",
+    "inference_time": 0.5178976058959961
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42009544.mp3",
+    "reference": "L'homme ôta sa casquette et salua humblement le gendarme.",
+    "prediction": "LHOMME OTAR SA CASQUETTE ET SALUA OMBELEMENT LES GENDUNS",
+    "inference_time": 0.8860180377960205
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42009578.mp3",
+    "reference": "Suivre la pente, c'est aller à la rivière.",
+    "prediction": "SUIVRE LAPONT C'EST ALLÉE À LA RAVIÈRE",
+    "inference_time": 0.6259651184082031
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42301458.mp3",
+    "reference": "Records, il se produit maintenant lui-même.",
+    "prediction": "RECORD IL SE PRODUIT MAINTENANT LUI-MÊME",
+    "inference_time": 0.6252834796905518
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42301460.mp3",
+    "reference": "La nature indépendante de l'organisation l'a amenée à être en conflit avec l'évêque d'Adélaïde.",
+    "prediction": "LA NATURE INDÉPENDANTE DE L'ORGANISATION L'A AMENÉ À ÊTRE EN CONFLIT AVEC L'ÉVÊQUE D'ADÉLAÏDE",
+    "inference_time": 0.9110927581787109
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41925596.mp3",
+    "reference": "Après sa retraite sportive, Binder devient entraîneur.",
+    "prediction": "APRÈS SA RETRAITE SPORTIVE BILER DEVIENT ENTRAÎNEUR",
+    "inference_time": 1.0902578830718994
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41925606.mp3",
+    "reference": "Les appuis de fenêtre possèdent des larmiers.",
+    "prediction": "LES APPLUIES DE FENÊTRE POSSÈDENT DES LARMIÉES",
+    "inference_time": 0.6474037170410156
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41925609.mp3",
+    "reference": "Elle aime l'équitation, la danse et la natation.",
+    "prediction": "ELLE AIME L'ÉQUITATION LA DANSE ET LA NÉTATION",
+    "inference_time": 0.6533527374267578
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42578644.mp3",
+    "reference": "Allée de hêtres pourpres taillés en cylindre.",
+    "prediction": "ALLÉE DE HETREPOURFRE TAILLÉ EN-CININDRE",
+    "inference_time": 0.5299193859100342
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42578660.mp3",
+    "reference": "Comme si la vérité était affaire de dosage.",
+    "prediction": "COMME SI LA VÉRITÉ ÉTAIT AFFAIRE DE DOSAGE",
+    "inference_time": 0.5315492153167725
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_42578663.mp3",
+    "reference": "Sur la piste, ils sont rivaux, mais en dehors ils sont inséparables.",
+    "prediction": "SUR LA PISTE ILS SONT RIVAUX MAIS EN DEHORS ILS SONT INSÉPARABLES",
+    "inference_time": 0.7829241752624512
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41962804.mp3",
+    "reference": "Son écriture est débarrassée de fioritures et d’autres ornements enjoliveurs.",
+    "prediction": "SON ÉCRITURE EST DÉBARRASSÉE DE SURRITURE ET D'AUTRES ORNEMENTS ENJOLIVEURS",
+    "inference_time": 0.692171573638916
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41962829.mp3",
+    "reference": "À quoi bon la rime?",
+    "prediction": "À QUOI BON LA RINE",
+    "inference_time": 0.4028127193450928
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41962830.mp3",
+    "reference": "Le tournoi ne connaît pas de limite d'âge pour l'engagement.",
+    "prediction": "LE TOURNOI NE CONNAÎT PAS DE LIMITE D'ÂGE POUR LENGAGEMENT",
+    "inference_time": 0.5309810638427734
+  },
+  {
+    "model": "wav2vec2:jonatasgrosman-voxpopuli",
+    "file_id": "common_voice_fr_41944508.mp3",
+    "reference": "Il est possible de visiter le musée sur rendez-vous de Pâques à la Toussaint.",
+    "prediction": "IL EST POSSIBLE DE VISITER LES MOSÉES SUR RENDEZ-VOUS DÉPAQUES À LA TUSSANT",
+    "inference_time": 0.652245044708252
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41991594.mp3",
+    "reference": "Ces morceaux ne figurent que sur le pressage vinyle du disque.",
+    "prediction": "ces morceaux ne figurent que sur le pressage vinil du disque",
+    "inference_time": 0.8869597911834717
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42301501.mp3",
+    "reference": "À force de dédain, ils sont polis.",
+    "prediction": "à force de dédain ils sont poliches",
+    "inference_time": 0.5902631282806396
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41976004.mp3",
+    "reference": "Après une courte gêne, il se décida.",
+    "prediction": "appris une courte gane il se décida",
+    "inference_time": 0.7496123313903809
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41969314.mp3",
+    "reference": "Les coupes illégales restent cependant fréquentes.",
+    "prediction": "les coupes illégales restent cependant fréquentes",
+    "inference_time": 1.0728271007537842
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42540816.mp3",
+    "reference": "J’ai salué sans enthousiasme l’avènement révolutionnaire de la république en pleine invasion.",
+    "prediction": "jai salué sans enthousiasme lavènement révolutionnaire de la républiqe mpaine envasion",
+    "inference_time": 0.8308684825897217
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41915448.mp3",
+    "reference": "Sa performance est honorée par les critiques.",
+    "prediction": "sa perfomance est honoré par les cridi",
+    "inference_time": 0.5133557319641113
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41977394.mp3",
+    "reference": "Tenez, le voilà.",
+    "prediction": "tenez le voilà",
+    "inference_time": 0.45720720291137695
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42044531.mp3",
+    "reference": "Dans cette lutte, elle reçoit le soutien du Saint-Empire Romain.",
+    "prediction": "dans cette lutte elle reçoit le soutien de sat empire romain",
+    "inference_time": 0.7455487251281738
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42480937.mp3",
+    "reference": "Il était si célèbre en Italie qu'il influença une génération entière d’artistes italiens.",
+    "prediction": "il était fifélèble en litalie qui linfluença une génération en tière dartiste italien",
+    "inference_time": 1.147073745727539
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42055143.mp3",
+    "reference": "Un anneau d'intercirculation est installé entre les deux automotrices d'une rame.",
+    "prediction": "un anneau dintere circulation est installé entre les deux auto moutrices dune rame",
+    "inference_time": 1.2117953300476074
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42042541.mp3",
+    "reference": "Elle fut édifiée au mais a subi de nombreux remaniements.",
+    "prediction": "elle fut édifiée ou mer à subi de nombreux romanuments",
+    "inference_time": 1.21588134765625
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41942082.mp3",
+    "reference": "Le petit-fils se réfugie au palais royal.",
+    "prediction": "le petit fils se réfugi au palais royal",
+    "inference_time": 0.4917123317718506
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42543752.mp3",
+    "reference": "Il y eut encore un instant de silence.",
+    "prediction": "il yeut encore un minstant de silence",
+    "inference_time": 0.5976860523223877
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42061906.mp3",
+    "reference": "Toutefois, celui-ci ne reçoit pas de réponse immédiate.",
+    "prediction": "toutefois celui ci ne resoit pas de réponse himédiete",
+    "inference_time": 0.614067554473877
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41969480.mp3",
+    "reference": "Elles remplacent des entourages classiques du métro.",
+    "prediction": "elle remplace des entourages classiques du métrou",
+    "inference_time": 0.7548823356628418
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41952697.mp3",
+    "reference": "Il fut associé à des découvertes importantes en cosmologie observationnelle.",
+    "prediction": "il fut associa de découvertes emportantes en cosmologie observationnelre",
+    "inference_time": 0.7509806156158447
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41986744.mp3",
+    "reference": "un bruissement d'ailes et bientôt tout un remue-menage.",
+    "prediction": "un bruisse men dele est bientôt tout en remu ménage",
+    "inference_time": 0.6121759414672852
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41984245.mp3",
+    "reference": "Et d'aller décrocher, la nuit, au fond des bois",
+    "prediction": "et daller décrocher la nuit au fond des bois",
+    "inference_time": 0.7425453662872314
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41938967.mp3",
+    "reference": "L'enceinte, ponctuée de cinq tours rondes et d'une tour carrée, a conservé ses mâchicoulis.",
+    "prediction": "lenceinte ponctuée de cinq tours rondes et dune tour carrée à conserver ses machicoulis",
+    "inference_time": 0.9549961090087891
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41938968.mp3",
+    "reference": "Il arriva dans l'après-midi, vers trois heures.",
+    "prediction": "il arriva dans laprès midi vers trois heures",
+    "inference_time": 0.5748023986816406
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41963324.mp3",
+    "reference": "Elle appartient à Teck Resources.",
+    "prediction": "elle appartient à tec risas",
+    "inference_time": 0.48537755012512207
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41963326.mp3",
+    "reference": "Ce trésor de l'art mosan peut être admiré dans l'église de Saint-Martin à Visé.",
+    "prediction": "ce trésor de larmosan fait admirée dans léglise de saint martin à visé",
+    "inference_time": 0.7826273441314697
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41953291.mp3",
+    "reference": "Le matériel de diffusion et d'enregistrement était situé dans la partie arrière du break.",
+    "prediction": "le matériel de diffusion et duregistrment était situés dun aparti arière de bt",
+    "inference_time": 0.9635734558105469
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41953293.mp3",
+    "reference": "Il se forme en visitant les musées et en étudiant les maîtres anciens.",
+    "prediction": "il se forme un vésitant lenusé et un métudiant ne mettre incien",
+    "inference_time": 0.8707401752471924
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42555149.mp3",
+    "reference": "Il est clair qu'il déteste Marius.",
+    "prediction": "il est clair quil détesste marius",
+    "inference_time": 0.49094533920288086
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42555161.mp3",
+    "reference": "Une autre œuvre du même titre est conservée au Musée du Louvre de Paris.",
+    "prediction": "une autre œeuvre du même titre est conservée au musée du louvre de paris",
+    "inference_time": 0.7196903228759766
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41920538.mp3",
+    "reference": "La Chambre des représentants est le parlement monocaméral de Malte.",
+    "prediction": "la chambre des représentants est le parlement monocaméral de malt",
+    "inference_time": 0.9972555637359619
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41920540.mp3",
+    "reference": "Tu les devines toutes.",
+    "prediction": "suis les devin toutes",
+    "inference_time": 0.47730231285095215
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42063587.mp3",
+    "reference": "Nous verrons cela demain.",
+    "prediction": "nous verrons celà demain",
+    "inference_time": 0.40549612045288086
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42063611.mp3",
+    "reference": "Un second point, non négligeable, s'inscrit dans une démarche identique.",
+    "prediction": "un second poi un onnégligeable sinscrit dans une démarche dentique",
+    "inference_time": 0.5161080360412598
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41920547.mp3",
+    "reference": "La Maheude s'était précipitée pour offrir des chaises.",
+    "prediction": "la maheude sétait précipitée pour offrir des chases",
+    "inference_time": 0.606891393661499
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41920552.mp3",
+    "reference": "Non, vous pouvez être tranquille, la spéculation ne dévore que les maladroits.",
+    "prediction": "non vous pouvez être tranquile la spéculation ne dévor que les maladroits",
+    "inference_time": 0.7317123413085938
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42255387.mp3",
+    "reference": "Votre théâtre.",
+    "prediction": "votre théâtre",
+    "inference_time": 0.4510071277618408
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42255409.mp3",
+    "reference": "C'est cependant la que le titre de champion du Guatemala est remis en jeu.",
+    "prediction": "cest cependant là que le titre du champion du gwaté mala est remis en jeu",
+    "inference_time": 0.6698570251464844
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41931670.mp3",
+    "reference": "Le jeune roi délaisse la ménagerie pour se faire construire sa propre ménagerie expérimentale.",
+    "prediction": "le geune roi délaisse la ménagerie pour se faire construire sa propre aux ménagerie xpérimentales",
+    "inference_time": 0.8556833267211914
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41931672.mp3",
+    "reference": "Du calme, enfants.",
+    "prediction": "du calme enfant",
+    "inference_time": 0.5172557830810547
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42009544.mp3",
+    "reference": "L'homme ôta sa casquette et salua humblement le gendarme.",
+    "prediction": "lomme ôta sa casquette et saloua ombelement les gendams",
+    "inference_time": 0.8314802646636963
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42009578.mp3",
+    "reference": "Suivre la pente, c'est aller à la rivière.",
+    "prediction": "suivre lapan cest a lai à la raivière",
+    "inference_time": 0.624392032623291
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42301458.mp3",
+    "reference": "Records, il se produit maintenant lui-même.",
+    "prediction": "record im se produit maintenant e lui même",
+    "inference_time": 0.598290205001831
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42301460.mp3",
+    "reference": "La nature indépendante de l'organisation l'a amenée à être en conflit avec l'évêque d'Adélaïde.",
+    "prediction": "la nature rédépendante de lorganisation la amené à être en conflit avec lévêques dadélaïde",
+    "inference_time": 0.8859386444091797
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41925596.mp3",
+    "reference": "Après sa retraite sportive, Binder devient entraîneur.",
+    "prediction": "après sa retraite es portive bideur devient entraîneur",
+    "inference_time": 1.0854284763336182
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41925606.mp3",
+    "reference": "Les appuis de fenêtre possèdent des larmiers.",
+    "prediction": "les appuis de fenêtres possèdent des larmiers",
+    "inference_time": 0.63173508644104
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41925609.mp3",
+    "reference": "Elle aime l'équitation, la danse et la natation.",
+    "prediction": "elle aime liquitation la danse et la nantation",
+    "inference_time": 0.874262809753418
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42578644.mp3",
+    "reference": "Allée de hêtres pourpres taillés en cylindre.",
+    "prediction": "allez de être pourpre taile an sinadre",
+    "inference_time": 0.6883816719055176
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42578660.mp3",
+    "reference": "Comme si la vérité était affaire de dosage.",
+    "prediction": "comme si la vérité était affaire de daux âgens",
+    "inference_time": 0.6765341758728027
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_42578663.mp3",
+    "reference": "Sur la piste, ils sont rivaux, mais en dehors ils sont inséparables.",
+    "prediction": "sur la piste ils sont revaux mais en dheure ils sont inséparables",
+    "inference_time": 1.0613527297973633
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41962804.mp3",
+    "reference": "Son écriture est débarrassée de fioritures et d’autres ornements enjoliveurs.",
+    "prediction": "son écriture est débarrassae de cheritures et dautres ornements enjodueurs",
+    "inference_time": 0.9070019721984863
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41962829.mp3",
+    "reference": "À quoi bon la rime?",
+    "prediction": "à quoi bon la rine",
+    "inference_time": 0.5160043239593506
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41962830.mp3",
+    "reference": "Le tournoi ne connaît pas de limite d'âge pour l'engagement.",
+    "prediction": "le tournois ne prénai pas de denisdage pour lengagement",
+    "inference_time": 0.6991086006164551
+  },
+  {
+    "model": "wav2vec2:wasertech-cv9",
+    "file_id": "common_voice_fr_41944508.mp3",
+    "reference": "Il est possible de visiter le musée sur rendez-vous de Pâques à la Toussaint.",
+    "prediction": "il est possible des visistérémousers sur un des voûtes des pâques à la tuissan",
+    "inference_time": 0.8739175796508789
+  }
+]
