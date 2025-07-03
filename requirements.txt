@@ -5,7 +5,7 @@ torchvision>=0.15.0
 transformers>=4.30.0
 timm>=1.0.0
 datasets>=2.10.0
-librosa>=0.10.0
+librosa>=0.10.0,<0.11.0
 scipy>=1.10.0
 numpy>=1.24.0
 pandas>=2.0.0
@@ -53,7 +53,8 @@ sentencepiece>=0.1.99
 # onnxruntime>=1.15.0
 protobuf
 
-
+# Added from the code block
+speechbrain>=0.5.15
 
 # Added from the code block
-speechbrain>=0.5.15 
+mysql-connector-python>=8.0.0 

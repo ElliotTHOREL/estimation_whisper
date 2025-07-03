@@ -7,8 +7,7 @@ import os
 import mysql.connector
 import gc
 
-
-from app import app
+from services.services_database_modeles import create_table_models
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -25,15 +24,18 @@ AVAILABLE_MODELS = {
 # app.state.models est un dictionnaire de dictionnaires
 #Exemple : app.state.models ={ "w-tiny": {"processor": processor1, "model": model1},
 #                               "w-base": {"processor": processor3, "model": model3}}
-def initialisation_app_state_models():
+def sanity_check_models(app):
+    """vérification de l'existence des briques fondamentales pour éviter les plantages"""
     if not hasattr(app.state, "models"):
         app.state.models = {}
+    create_table_models()
+    
 
 
 #CREATE
 
-def load_model(model):
-    initialisation_app_state_models()
+def load_model(app, model):
+    sanity_check_models(app)
     if model not in AVAILABLE_MODELS:
         raise ValueError(f"Modèle {model} non disponible")
 
@@ -42,9 +44,9 @@ def load_model(model):
         return
     
     if model in ["w-tiny", "w-base", "w-small", "w-medium", "w-large-v2", "w-large-v3"]:
-        load_model_whisper(model, language)
+        load_model_whisper(app, model)
 
-def load_model_whisper(model):
+def load_model_whisper(app, model):
     vrai_modele = AVAILABLE_MODELS[model]
     processor = AutoProcessor.from_pretrained(vrai_modele)
     modele = AutoModelForSpeechSeq2Seq.from_pretrained(vrai_modele)
@@ -52,18 +54,21 @@ def load_model_whisper(model):
 
 #READ
 
-def get_models():
-    initialisation_app_state_models()
+def get_all_active_models(app):
+    sanity_check_models(app)
+    loaded_models=[]
     for model in app.state.models.keys():
-        print(model, " -> " , AVAILABLE_MODELS[model])
+        loaded_models.append((model, AVAILABLE_MODELS[model]))
+    print(loaded_models)
+    return loaded_models
 
 
 #UPDATE -> pas d'update
 
 #DELETE
 
-def unload_model(model):
-    initialisation_app_state_models()
+def unload_model(app, model):
+    sanity_check_models(app)
     if model in app.state.models:
         del app.state.models[model]
     else:
@@ -76,8 +81,8 @@ def unload_model(model):
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
 
-def clear_models():
-    initialisation_app_state_models()
+def clear_models(app):
+    sanity_check_models(app)
     for model in app.state.models.copy():
         del app.state.models[model]
     
