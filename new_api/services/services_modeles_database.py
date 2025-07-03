@@ -23,10 +23,10 @@ def create_table_models():
     finally:
         cursor.close()
         conn.close()
-
-
     
 def ajoute_model(liste_noms_model):
+
+
     conn = mysql.connector.connect(
         host="localhost",
         port=3306,
@@ -56,3 +56,44 @@ def ajoute_model(liste_noms_model):
     finally:
         cursor.close()
         conn.close()
+
+
+
+def get_all_models():
+    conn = mysql.connector.connect(
+        host="localhost",
+        port=3306,
+        user="admin",
+        password="pwd",
+        database="db_audio"
+    )
+    cursor = conn.cursor()
+
+    result = []
+    try:
+        cursor.execute("SELECT name FROM modele")
+        result = cursor.fetchall()
+    finally:
+        cursor.close()
+        conn.close()
+    
+    return result
+
+
+def delete_all_models():
+    conn = mysql.connector.connect(
+        host="localhost",
+        port=3306,
+        user="admin",
+        password="pwd",
+        database="db_audio"
+    )
+    cursor = conn.cursor()
+    try:
+        cursor.execute("DELETE FROM modele")
+        conn.commit()
+    finally:
+        cursor.close()
+        conn.close()
+    
+    

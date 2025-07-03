@@ -7,7 +7,7 @@ import os
 import mysql.connector
 import gc
 
-from services.services_database_modeles import create_table_models
+from services.services_modeles_database import create_table_models
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -51,6 +51,8 @@ def load_model_whisper(app, model):
     processor = AutoProcessor.from_pretrained(vrai_modele)
     modele = AutoModelForSpeechSeq2Seq.from_pretrained(vrai_modele)
     app.state.models[model] = {"processor": processor, "model": modele}
+
+
 
 #READ
 
