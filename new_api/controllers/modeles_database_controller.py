@@ -1,5 +1,5 @@
 import services.services_modeles_database as services_modeles_database
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 from services.services_models import AVAILABLE_MODELS
 
 router = APIRouter(prefix="/modeles_database", tags=["Database modèles"])
@@ -14,6 +14,17 @@ async def load_all():
 @router.get("/")
 async def get_all_models():
     return (services_modeles_database.get_all_models())
+
+
+#UPDATE
+
+@router.post("/calculate_wer_one")
+async def compute_wer_un_modele(model):
+    return (services_modeles_database.calculate_wer(model))
+
+@router.post("/calculate_wer_all")
+async def calculate_wer_tous_les_modeles(request: Request):
+    return (services_modeles_database.calculate_wer_full(request.app))
 
 #DELETE
 @router.delete("/")

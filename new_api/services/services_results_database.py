@@ -104,7 +104,8 @@ def delete_all_results():
         conn.close()
 
 
-def estimer_wer():
+def estimer_tous_les_wer():
+    """calculer le WER pour tous les résultats de la table audio_model_results"""
     conn = mysql.connector.connect(
         host="localhost",
         port=3306,
