@@ -1,12 +1,16 @@
 import uvicorn
 from app import create_app
-from controllers import register_routes
+from controllers import create_tables, register_routes
 
 # Création de l'app
 app = create_app()
 
+# Création des tables
+create_tables()
+
 # Enregistrement des routes
 register_routes(app)
+
 
 if __name__ == "__main__":
     uvicorn.run(

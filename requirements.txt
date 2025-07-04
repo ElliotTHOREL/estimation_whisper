@@ -37,6 +37,7 @@ python-dotenv>=1.0.0
 pathlib
 argparse
 logging
+csv
 tqdm>=4.65.0
 
 # Speech models specific

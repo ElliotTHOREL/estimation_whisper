@@ -1,6 +1,6 @@
-import services.services_modeles_database as services_modeles_database
+import services.database.models as services_modeles_database
 from fastapi import APIRouter, Request
-from services.services_models import AVAILABLE_MODELS
+from services.models import AVAILABLE_MODELS
 
 router = APIRouter(prefix="/modeles_database", tags=["Database modèles"])
 
@@ -28,8 +28,8 @@ async def calculate_wer_tous_les_modeles(request: Request):
 
 #DELETE
 @router.delete("/")
-async def delete_all_models():
-    services_modeles_database.delete_all_models()
+async def reset_models():
+    services_modeles_database.reset_models()
 
 
 

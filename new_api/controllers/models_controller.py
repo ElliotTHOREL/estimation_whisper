@@ -1,4 +1,4 @@
-import services.services_models as services_models
+import services.models as services_models
 from fastapi import APIRouter, Request  
 
 router = APIRouter(prefix="/models", tags=["Models"])
@@ -22,7 +22,7 @@ async def get_models(request: Request):
     })
 
 #DELETE
-@router.post("/unload")
+@router.delete("/unload")
 async def unload_model(model, request: Request):
     services_models.unload_model(request.app, model)
 

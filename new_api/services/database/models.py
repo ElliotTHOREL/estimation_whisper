@@ -1,6 +1,7 @@
 import mysql.connector
 
 
+
 def create_table_models():
     conn = mysql.connector.connect(
         host="localhost",
@@ -37,16 +38,6 @@ def ajoute_model(liste_noms_model):
     )
     cursor = conn.cursor()
 
-    # CREATION DE LA TABLE
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS modele (
-            id INT PRIMARY KEY AUTO_INCREMENT,
-            name VARCHAR(100) NOT NULL UNIQUE,
-            wer FLOAT
-        )
-    """)
-    conn.commit()
-
     try:
         # Insertion des modèles
         for nom_model in liste_noms_model:
@@ -58,7 +49,6 @@ def ajoute_model(liste_noms_model):
     finally:
         cursor.close()
         conn.close()
-
 
 
 def get_all_models():
@@ -135,7 +125,7 @@ def calculate_wer_full(app):
     from services.services_results_database import estimer_tous_les_wer, translate_all
     from services.services_models import get_all_active_models 
     
-    translate_all(app, True)
+    translate_all(app, False)
     estimer_tous_les_wer()
     
     liste_models = [nom for (nom, _) in get_all_active_models(app)]
@@ -143,3 +133,24 @@ def calculate_wer_full(app):
         calculate_wer(model)
 
 
+def reset_models():
+    from services.database.results import create_table_results
+
+    conn = mysql.connector.connect(
+        host="localhost",
+        port=3306,
+        user="admin",
+        password="pwd",
+        database="db_audio"
+    )
+    cursor = conn.cursor()
+    try:
+        cursor.execute("DROP TABLE IF EXISTS audio_model_results")
+        cursor.execute("DROP TABLE IF EXISTS modele")
+        conn.commit()
+    finally:
+        cursor.close()
+        conn.close()
+
+    create_table_models()
+    create_table_results()

@@ -1,4 +1,4 @@
-import services.services_translate as services_translate
+import services.translate as services_translate
 from fastapi import APIRouter, Request  
 
 

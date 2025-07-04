@@ -7,7 +7,7 @@ import os
 import mysql.connector
 import gc
 
-from services.services_modeles_database import create_table_models
+from services.database.models import create_table_models
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -28,12 +28,8 @@ def sanity_check_models(app):
     """vérification de l'existence des briques fondamentales pour éviter les plantages"""
     if not hasattr(app.state, "models"):
         app.state.models = {}
-    create_table_models()
-    
-
 
 #CREATE
-
 def load_model(app, model):
     sanity_check_models(app)
     if model not in AVAILABLE_MODELS:

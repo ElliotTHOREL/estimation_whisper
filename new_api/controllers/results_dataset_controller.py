@@ -1,4 +1,4 @@
-import services.services_results_database as services_results_database
+import services.database.results as services_results_database
 from fastapi import APIRouter, Request
 
 
@@ -15,10 +15,10 @@ async def translate_all(request: Request, replace = True):
     services_results_database.translate_all(request.app, replace)
 
 @router.post("/wer")
-async def estimer_wer():
-    services_results_database.estimer_wer()
+async def estimer_wer_transcriptions():
+    services_results_database.estimer_tous_les_wer()
 
 #DELETE
 @router.delete("/")
-async def delete_all_results():
-    services_results_database.delete_all_results()
+async def reset_results():
+    services_results_database.reset_results()

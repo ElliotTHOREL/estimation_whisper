@@ -1,9 +1,9 @@
 from transformers import pipeline
 
-from services.services_models import sanity_check_models, get_all_active_models
-from services.services_audio_database import get_all_audio, get_audio_path
-from services.services_results_database import ajoute_result
-from services.services_modeles_database import ajoute_model
+from services.models import sanity_check_models, get_all_active_models
+from services.database.audio import get_all_audio, get_audio_path
+from services.database.results import ajoute_result
+from services.database.models import ajoute_model
 
 import os
 import librosa

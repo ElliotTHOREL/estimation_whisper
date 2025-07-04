@@ -1,13 +1,12 @@
 import mysql.connector
-from services.services_models import sanity_check_models, get_all_active_models
-from services.services_audio_database import get_all_audio
-from services.services_modeles_database import ajoute_model
+from services.models import sanity_check_models, get_all_active_models
+from services.database.audio import get_all_audio
+from services.database.models import ajoute_model
 
 from jiwer import wer
 
 
-
-def ajoute_result(model, id_audio, transcription_result, duree, replace):
+def create_table_results():
     conn = mysql.connector.connect(
         host="localhost",
         port=3306,
@@ -15,12 +14,8 @@ def ajoute_result(model, id_audio, transcription_result, duree, replace):
         password="pwd",
         database="db_audio"
     )
-    cursor = conn.cursor()
-
-
-
+    cursor = conn.cursor()  
     try:
-        # CREATION DE LA TABLE
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS audio_model_results (
                 id_audio INT NOT NULL,
@@ -34,8 +29,20 @@ def ajoute_result(model, id_audio, transcription_result, duree, replace):
             )
         """)
         conn.commit()
+    finally:
+        cursor.close()
+        conn.close()
 
-        # INSERTION DES RESULTATS
+def ajoute_result(model, id_audio, transcription_result, duree, replace):
+    conn = mysql.connector.connect(
+        host="localhost",
+        port=3306,
+        user="admin",
+        password="pwd",
+        database="db_audio"
+    )
+    cursor = conn.cursor()
+    try:
         if replace:
             cursor.execute("""
                 INSERT INTO audio_model_results (id_audio, id_model, transcription_result, duree)
@@ -86,7 +93,7 @@ def translate_many(app, liste_models, replace):
             ajoute_result(model, id_audio, transcription_result,durée, replace)
 
 
-def delete_all_results():
+def reset_results():
     conn = mysql.connector.connect(
         host="localhost",
         port=3306,
@@ -97,11 +104,13 @@ def delete_all_results():
     cursor = conn.cursor()
     
     try:
-        cursor.execute("DROP TABLE audio_model_results")
+        cursor.execute("DROP TABLE IF EXISTS audio_model_results")
         conn.commit()
     finally:
         cursor.close()
         conn.close()
+
+    create_table_results()
 
 
 def estimer_tous_les_wer():

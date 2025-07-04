@@ -6,15 +6,12 @@ from dotenv import load_dotenv
 import os
 import mysql.connector
 
+
 load_dotenv()
 path_dataset = os.getenv("PATH_DATASET")
 
-
-
-
 #CREATE
-def load_dataset_interv(deb, fin):
-    # Connexion à MariaDB
+def create_table_audio():
     conn = mysql.connector.connect(
         host="localhost",
         port=3306,
@@ -23,48 +20,27 @@ def load_dataset_interv(deb, fin):
         database="db_audio"
     )
     cursor = conn.cursor()
-
-    # Création de la table avec id manuel
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS audio (
-        id INT PRIMARY KEY,
-        path VARCHAR(255),
-        sentence TEXT
-    )
-    """)
-    conn.commit()
     try:
-        # Charger le fichier TSV
-        path_dataset = os.getenv("PATH_DATASET")
-        chemin_tsv = os.path.join(path_dataset, "validated.tsv")
-
-        with open(chemin_tsv, "r", encoding="utf-8") as f:
-            next(f)  # sauter l'en-tête
-            for i, ligne in enumerate(f):
-                if i >= fin:
-                    break
-                if i >= deb:
-                    valeurs = ligne.strip().split("\t")
-
-
-                    path = valeurs[1]
-                    sentence = valeurs[3]
-
-                    cursor.execute("""
-                    INSERT IGNORE INTO audio (id, path, sentence)
-                    VALUES (%s, %s, %s)
-                    """, (i, path, sentence))
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS audio (
+            id INT,
+            batch VARCHAR(100),
+            path VARCHAR(255),
+            sentence TEXT,
+            FOREIGN KEY (batch) REFERENCES batch_audio(name) ON DELETE CASCADE,
+            PRIMARY KEY (id, batch)
+        )
+        """)
         conn.commit()
     finally:
         cursor.close()
         conn.close()
 
-def load_dataset(nb_audio):
-    load_dataset_interv(0, int(nb_audio))
+
 
 
 #READ
-def get_audio_path(id_audio):
+def get_audio_path(id_audio, batch):
     conn = mysql.connector.connect(
         host="localhost",
         port=3306,
@@ -75,7 +51,7 @@ def get_audio_path(id_audio):
     cursor = conn.cursor()
     result = None
     try:
-        cursor.execute("SELECT path FROM audio WHERE id = %s", (id_audio,))
+        cursor.execute("SELECT path FROM audio WHERE id = %s AND batch = %s", (id_audio, batch))
         result = cursor.fetchone()[0]
     finally:
         cursor.close()
@@ -94,7 +70,7 @@ def get_all_audio():
     result = None
 
     try:
-        cursor.execute("SELECT id, path, sentence FROM audio")
+        cursor.execute("SELECT id, batch, path, sentence FROM audio")
         result = cursor.fetchall()  # Liste de tuples (path, sentence)
     finally:
         cursor.close()
@@ -132,7 +108,9 @@ def get_number_of_audio():
 
 
 #DELETE
-def delete_dataset():
+def reset_dataset():
+    from services.database.results import create_table_results
+
     conn = mysql.connector.connect(
         host="localhost",
         port=3306,
@@ -143,34 +121,13 @@ def delete_dataset():
     cursor = conn.cursor()
 
     try:
-        cursor.execute("DELETE FROM audio")
+        cursor.execute("DROP TABLE IF EXISTS audio_model_results")
+        cursor.execute("DROP TABLE IF EXISTS audio")
         conn.commit()
-
-    except mysql.connector.Error as err:
-        if err.errno == 1146:  # Code erreur : table n'existe pas
-            print("La table 'audio' n'existe pas.")
     finally:
         cursor.close()
         conn.close()
 
-def delete_dataset_interv(deb, fin):
-    #Connexion à MariaDB
-    conn = mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="admin",
-        password="pwd",
-        database="db_audio"
-    )
-    cursor = conn.cursor()
+    create_table_audio()
+    create_table_results()
 
-    try:
-        cursor.execute("DELETE FROM audio WHERE id BETWEEN %s AND %s", (deb, fin))
-        conn.commit()
-
-    except mysql.connector.Error as err:
-        if err.errno == 1146:  # Code erreur : table n'existe pas
-            print("La table 'audio' n'existe pas.")
-    finally:
-        cursor.close()
-        conn.close()
