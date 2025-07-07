@@ -1,9 +1,10 @@
 from transformers import pipeline
 
-from services.models import sanity_check_models, get_all_active_models
+from services.models import  get_all_active_models
 from services.database.audio import get_all_audio, get_audio_path
+from services.database.batch_audio import get_batch_audio_path
 from services.database.results import ajoute_result
-from services.database.models import ajoute_model
+
 
 import os
 import librosa
@@ -12,23 +13,19 @@ import time
 
 
 
-def get_full_path(id_audio):
-    path_dataset = os.getenv("PATH_DATASET")
-    path_spe_audio = get_audio_path(id_audio)
-    return os.path.join(path_dataset, "clips",path_spe_audio)
+def get_full_path(id_audio, batch_audio):
+    path_batch = get_batch_audio_path(batch_audio)
+    path_spe_audio = get_audio_path(id_audio, batch_audio)
+    return os.path.join(path_batch, path_spe_audio)
 
-def translate_one(app, nom_model, id_audio):
-    sanity_check_models(app)
-    
-    start_time = time.time()
+def translate_one(app, nom_model, id_audio, batch_audio):
     if nom_model in ["w-tiny", "w-base", "w-small", "w-medium", "w-large-v2", "w-large-v3"]:
-        transcription = translate_one_with_whisper(app, nom_model, id_audio)
+        transcription, duree = translate_one_with_whisper(app, nom_model, id_audio, batch_audio)
     
-    end_time = time.time()
-    return transcription, end_time - start_time
+    return transcription, duree
 
-def translate_one_with_whisper(app, nom_model, id_audio):
-    path_audio = get_full_path(id_audio)
+def translate_one_with_whisper(app, nom_model, id_audio, batch_audio):
+    path_audio = get_full_path(id_audio, batch_audio)
 
     if nom_model not in app.state.models:
         raise ValueError(f"Le modèle {nom_model} n'est pas chargé")
@@ -37,6 +34,8 @@ def translate_one_with_whisper(app, nom_model, id_audio):
     model = app.state.models[nom_model]["model"]
 
     audio_data, sampling_rate = librosa.load(path_audio, sr=16000)
+
+    start_time = time.perf_counter()
     inputs = processor(audio_data, sampling_rate=sampling_rate, return_tensors="pt")
 
     generate_kwargs = {}
@@ -44,8 +43,12 @@ def translate_one_with_whisper(app, nom_model, id_audio):
     
     predicted_ids = model.generate(**inputs, **generate_kwargs)
     transcription = processor.batch_decode(predicted_ids, skip_special_tokens=True)
+    end_time = time.perf_counter()
+
+    duree = end_time - start_time
     
-    return transcription[0]
+    print(duree)
+    return transcription[0], duree
 
 
 

@@ -16,6 +16,6 @@ async def get_all_batch_audio():
     return services_batch_audio.get_all_batch_audio()
 
 #DELETE
-@router.delete("/")
+@router.delete("/all")
 async def reset_batch_audio():
     services_batch_audio.reset_batch_audio()

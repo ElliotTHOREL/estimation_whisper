@@ -17,4 +17,4 @@ async def get_number_of_audio():
 #DELETE
 @router.delete("/reset")
 async def reset_dataset():
-    services_audio_database.reset_dataset()
+    services_audio_database.reset_audio()

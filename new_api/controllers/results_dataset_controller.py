@@ -6,19 +6,27 @@ router = APIRouter(prefix="/results_database", tags=["Database results"])
 
 
 #CREATE
+@router.post("/many_audios")
+async def translate_batch(request: Request, replace = True, batch = "nom du batch", deb=0, fin=10):
+    """On remplit la table audio_model_results avec :
+    - tous les modèles montés
+    - tous les audios "sélectionnés"
+    """
+    services_results_database.translate_all_models_many_audios(request.app, replace, batch, int(deb), int(fin))
+
 @router.post("/all")
 async def translate_all(request: Request, replace = True):
     """On remplit la table audio_model_results avec :
     - tous les modèles montés
     - tous les audios de la base de données
     """
-    services_results_database.translate_all(request.app, replace)
+    services_results_database.translate_all_models_all_audios(request.app, replace)
 
 @router.post("/wer")
 async def estimer_wer_transcriptions():
     services_results_database.estimer_tous_les_wer()
 
 #DELETE
-@router.delete("/")
+@router.delete("/all")
 async def reset_results():
     services_results_database.reset_results()

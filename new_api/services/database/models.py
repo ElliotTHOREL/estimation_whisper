@@ -1,19 +1,8 @@
-import mysql.connector
-
+from connection import get_db_cursor
 
 
 def create_table_models():
-    conn = mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="admin",
-        password="pwd",
-        database="db_audio"
-    )
-    cursor = conn.cursor()
-
-    # CREATION DE LA TABLE
-    try:
+    with get_db_cursor() as cursor:
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS modele (
                 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -21,85 +10,34 @@ def create_table_models():
                 wer FLOAT
             )
         """)
-        conn.commit()
-    finally:
-        cursor.close()
-        conn.close()
+
     
 def ajoute_model(liste_noms_model):
-
-
-    conn = mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="admin",
-        password="pwd",
-        database="db_audio"
-    )
-    cursor = conn.cursor()
-
-    try:
-        # Insertion des modèles
+    with get_db_cursor() as cursor:
         for nom_model in liste_noms_model:
             cursor.execute("""
                 INSERT IGNORE INTO modele (name) VALUES (%s)
             """, (nom_model,))
         
-        conn.commit()
-    finally:
-        cursor.close()
-        conn.close()
+
 
 
 def get_all_models():
-    conn = mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="admin",
-        password="pwd",
-        database="db_audio"
-    )
-    cursor = conn.cursor()
-
-    result = []
-    try:
+    with get_db_cursor() as cursor:
         cursor.execute("SELECT name FROM modele")
-        result = cursor.fetchall()
-    finally:
-        cursor.close()
-        conn.close()
+        return cursor.fetchall()
     
-    return result
+
 
 
 def delete_all_models():
-    conn = mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="admin",
-        password="pwd",
-        database="db_audio"
-    )
-    cursor = conn.cursor()
-    try:
+    with get_db_cursor() as cursor:
         cursor.execute("DELETE FROM modele")
-        conn.commit()
-    finally:
-        cursor.close()
-        conn.close()
+
 
 def calculate_wer(model):
 
-    conn = mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="admin",
-        password="pwd",
-        database="db_audio"
-    )
-    cursor = conn.cursor()
-
-    try:
+    with get_db_cursor() as cursor:
         cursor.execute("""
             SELECT AVG(audio_model_results.wer) FROM audio_model_results
             JOIN modele ON audio_model_results.id_model = modele.id
@@ -114,16 +52,13 @@ def calculate_wer(model):
             SET wer = %s
             WHERE name = %s
         """, (avg_wer, model))
-        conn.commit()
 
-    finally:
-        cursor.close()
-        conn.close()
+
 
 def calculate_wer_full(app):
     """Calcule les wer de tous les modèles actifs de l'app""" 
-    from services.services_results_database import estimer_tous_les_wer, translate_all
-    from services.services_models import get_all_active_models 
+    from services.database.results import estimer_tous_les_wer, translate_all
+    from services.models import get_all_active_models 
     
     translate_all(app, False)
     estimer_tous_les_wer()
@@ -136,21 +71,10 @@ def calculate_wer_full(app):
 def reset_models():
     from services.database.results import create_table_results
 
-    conn = mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="admin",
-        password="pwd",
-        database="db_audio"
-    )
-    cursor = conn.cursor()
-    try:
+    with get_db_cursor() as cursor:
         cursor.execute("DROP TABLE IF EXISTS audio_model_results")
         cursor.execute("DROP TABLE IF EXISTS modele")
-        conn.commit()
-    finally:
-        cursor.close()
-        conn.close()
+
 
     create_table_models()
     create_table_results()

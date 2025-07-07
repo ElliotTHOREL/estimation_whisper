@@ -7,7 +7,7 @@ import os
 import mysql.connector
 import gc
 
-from services.database.models import create_table_models
+from services.database.models import ajoute_model
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -24,14 +24,10 @@ AVAILABLE_MODELS = {
 # app.state.models est un dictionnaire de dictionnaires
 #Exemple : app.state.models ={ "w-tiny": {"processor": processor1, "model": model1},
 #                               "w-base": {"processor": processor3, "model": model3}}
-def sanity_check_models(app):
-    """vérification de l'existence des briques fondamentales pour éviter les plantages"""
-    if not hasattr(app.state, "models"):
-        app.state.models = {}
+
 
 #CREATE
 def load_model(app, model):
-    sanity_check_models(app)
     if model not in AVAILABLE_MODELS:
         raise ValueError(f"Modèle {model} non disponible")
 
@@ -44,6 +40,7 @@ def load_model(app, model):
 
 def load_model_whisper(app, model):
     vrai_modele = AVAILABLE_MODELS[model]
+    ajoute_model([model])
     processor = AutoProcessor.from_pretrained(vrai_modele)
     modele = AutoModelForSpeechSeq2Seq.from_pretrained(vrai_modele)
     app.state.models[model] = {"processor": processor, "model": modele}
@@ -53,11 +50,9 @@ def load_model_whisper(app, model):
 #READ
 
 def get_all_active_models(app):
-    sanity_check_models(app)
     loaded_models=[]
     for model in app.state.models.keys():
         loaded_models.append((model, AVAILABLE_MODELS[model]))
-    print(loaded_models)
     return loaded_models
 
 
@@ -66,7 +61,6 @@ def get_all_active_models(app):
 #DELETE
 
 def unload_model(app, model):
-    sanity_check_models(app)
     if model in app.state.models:
         del app.state.models[model]
     else:
@@ -80,7 +74,6 @@ def unload_model(app, model):
         torch.cuda.empty_cache()
 
 def clear_models(app):
-    sanity_check_models(app)
     for model in app.state.models.copy():
         del app.state.models[model]
     

@@ -9,19 +9,20 @@ from .audio_database_controller import router as database_router
 from .translate_controller import router as translate_router
 from .results_dataset_controller import router as results_router
 from .modeles_database_controller import router as modeles_router
+from .results_modele_database_controller import router as results_modele_database_router
 
 from services.database.batch_audio import create_table_batch_audio
 from services.database.audio import create_table_audio
 from services.database.models import create_table_models
 from services.database.results import create_table_results
-
+from services.database.results_model import create_table_results_model
 
 def create_tables():
     create_table_batch_audio()
     create_table_audio()
     create_table_models()
     create_table_results()
-
+    create_table_results_model()
 
 def register_routes(app: FastAPI):
     app.include_router(health_router)
@@ -31,3 +32,4 @@ def register_routes(app: FastAPI):
     app.include_router(database_router)
     app.include_router(modeles_router)
     app.include_router(results_router)
+    app.include_router(results_modele_database_router)

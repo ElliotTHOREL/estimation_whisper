@@ -1,20 +1,12 @@
-import mysql.connector
 import csv
+from connection import get_db_cursor
 
 
 
 
 #CREATE
 def create_table_batch_audio():
-    conn = mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="admin",
-        password="pwd",
-        database="db_audio"
-    )
-    cursor = conn.cursor()
-    try:
+    with get_db_cursor() as cursor:
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS batch_audio (
             name VARCHAR(100) PRIMARY KEY,
@@ -22,30 +14,14 @@ def create_table_batch_audio():
             path_fichier_metadonnees VARCHAR(255) NOT NULL #path to the file containing the metadata
         )
         """)
-        conn.commit()
-    finally:
-        cursor.close()
-        conn.close()    
+
 
 def add_batch_audio(name, path, path_fichier_metadonnees):
     """
     - Add a batch audio to the table batch_audio
     """
-    conn = mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="admin",
-        password="pwd",
-        database="db_audio"
-    )
-    cursor = conn.cursor()
-
-    try:
+    with get_db_cursor() as cursor:
         cursor.execute("INSERT INTO batch_audio (name, path, path_fichier_metadonnees) VALUES (%s, %s, %s)", (name, path, path_fichier_metadonnees))
-        conn.commit()
-    finally:
-        cursor.close()
-        conn.close()
 
 def add_batch_audio_extended(name, path, path_fichier_metadonnees):
     """
@@ -54,15 +30,7 @@ def add_batch_audio_extended(name, path, path_fichier_metadonnees):
     """
     add_batch_audio(name, path, path_fichier_metadonnees)
 
-    conn = mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="admin",
-        password="pwd",
-        database="db_audio"
-    )
-    cursor = conn.cursor()
-    try:
+    with get_db_cursor() as cursor:
         with open(path_fichier_metadonnees, newline='', encoding='utf-8') as tsvfile:
             reader = csv.DictReader(tsvfile, delimiter='\t')
             
@@ -70,77 +38,42 @@ def add_batch_audio_extended(name, path, path_fichier_metadonnees):
                 sentence = row["sentence"]
                 path_audio = row["path"]
                 cursor.execute("INSERT INTO audio (id, batch, path, sentence) VALUES (%s, %s, %s, %s)", (i, name, path_audio, sentence))
-            conn.commit()
-
-    finally:
-        cursor.close()
-        conn.close()
 
 
-
-    
 
 #READ
 def get_all_batch_audio():
-    conn = mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="admin",
-        password="pwd",
-        database="db_audio"
-    )
-    cursor = conn.cursor()
-
-    result = None
-    try:
+    with get_db_cursor() as cursor:
         cursor.execute("SELECT name FROM batch_audio")
-        result = cursor.fetchall()
-    finally:
-        cursor.close()
-        conn.close()
-    return result
+        return cursor.fetchall()
 
 
+def get_batch_audio_path(name):
+    with get_db_cursor() as cursor:
+        cursor.execute("SELECT path FROM batch_audio WHERE name = %s", (name,))
+        return cursor.fetchone()[0]
 
+def get_batch_audio_size(name):
+    with get_db_cursor() as cursor:
+        cursor.execute("SELECT COUNT(*) FROM audio WHERE batch = %s", (name,))
+        return cursor.fetchone()[0]
 
 #DELETE
 def delete_batch_audio(name):
-    conn = mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="admin",
-        password="pwd",
-        database="db_audio"
-    )
-    cursor = conn.cursor()
-    try:
+    with get_db_cursor() as cursor:
         cursor.execute("DELETE FROM batch_audio WHERE name = %s", (name,))
-        conn.commit()
-    finally:
-        cursor.close()
-        conn.close()
+
 
 def reset_batch_audio():
     from services.database.audio import create_table_audio
     from services.database.results import create_table_results
 
 
-    conn = mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="admin",
-        password="pwd",
-        database="db_audio"
-    )
-    cursor = conn.cursor()
-    try:
+    with get_db_cursor() as cursor:
         cursor.execute("DROP TABLE IF EXISTS audio_model_results")
         cursor.execute("DROP TABLE IF EXISTS audio")
         cursor.execute("DROP TABLE IF EXISTS batch_audio")
-        conn.commit()
-    finally:
-        cursor.close()
-        conn.close()
+
 
 
     create_table_batch_audio()

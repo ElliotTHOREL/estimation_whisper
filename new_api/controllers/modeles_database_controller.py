@@ -27,7 +27,7 @@ async def calculate_wer_tous_les_modeles(request: Request):
     return (services_modeles_database.calculate_wer_full(request.app))
 
 #DELETE
-@router.delete("/")
+@router.delete("/all")
 async def reset_models():
     services_modeles_database.reset_models()
 
