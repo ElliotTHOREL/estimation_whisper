@@ -4,6 +4,36 @@ from services.database.audio import get_all_audio, get_sentence_originale
 
 from jiwer import wer
 from connection import get_db_cursor
+import re
+import string
+
+
+def normalize_text(text: str) -> str:
+    """
+    Normalise le texte pour les calculs de métriques
+    
+    Args:
+        text: Texte à normaliser
+        
+    Returns:
+        Texte normalisé
+    """
+    # Conversion en minuscules
+    text = text.lower()
+    
+    # Remplacement de toutes les apostrophes (simples, typographiques, etc.) par un espace
+    text = re.sub(r"[''`´]", " ", text)
+    
+    # Suppression de la ponctuation (hors apostrophes déjà traitées)
+    text = text.translate(str.maketrans('', '', string.punctuation.replace("'", "")))
+    
+    # Suppression des espaces multiples
+    text = re.sub(r'\s+', ' ', text)
+    
+    # Suppression des espaces en début/fin
+    text = text.strip()
+    
+    return text
 
 
 
@@ -30,7 +60,7 @@ def create_table_results():
 def ajoute_result(model, id_audio, batch_audio, transcription_result, duree, replace):
     with get_db_cursor() as cursor:
         sentence_originale = get_sentence_originale(id_audio, batch_audio)
-        wer_transcription = wer(sentence_originale, transcription_result)
+        wer_transcription = wer(normalize_text(sentence_originale), normalize_text(transcription_result))
 
         if replace:
             # Supprime l'enregistrement existant s'il existe
@@ -149,7 +179,7 @@ def estimer_tous_les_wer():
         results = cursor.fetchall()
         for result in results:
             id_audio, id_model, transcription_result, sentence = result
-            wer_transcription = wer(sentence, transcription_result)
+            wer_transcription = wer(normalize_text(sentence), normalize_text(transcription_result))
             cursor.execute(
                 """
                 UPDATE audio_model_results

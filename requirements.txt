@@ -43,6 +43,8 @@ tqdm>=4.65.0
 # Speech models specific
 accelerate>=0.20.0
 safetensors>=0.3.0
+pyctcdecode>=0.5.0
+nemo-toolkit[asr]>=1.20.0
 
 # SeamlessM4T dependencies
 tiktoken>=0.5.0

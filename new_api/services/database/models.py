@@ -1,23 +1,35 @@
 from connection import get_db_cursor
 
 
+
+
 def create_table_models():
     with get_db_cursor() as cursor:
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS modele (
                 id INT PRIMARY KEY AUTO_INCREMENT,
                 name VARCHAR(100) NOT NULL UNIQUE,
-                wer FLOAT
+                duree_chargement FLOAT
             )
         """)
 
     
-def ajoute_model(liste_noms_model):
+def ajoute_model(model, temps_chargement):
     with get_db_cursor() as cursor:
-        for nom_model in liste_noms_model:
+        # Vérifier si le modèle existe déjà
+        cursor.execute("SELECT COUNT(*) FROM modele WHERE name = %s", (model,))
+        exists = cursor.fetchone()[0] > 0
+
+        if not exists:
+            # Insérer seulement si n'existe pas
             cursor.execute("""
-                INSERT IGNORE INTO modele (name) VALUES (%s)
-            """, (nom_model,))
+                INSERT INTO modele (name, duree_chargement) VALUES (%s, %s)
+            """, (model, temps_chargement))
+        else:
+            # Mettre à jour le temps de chargement si existe
+            cursor.execute("""
+                UPDATE modele SET duree_chargement = %s WHERE name = %s
+            """, (temps_chargement, model))
         
 
 
