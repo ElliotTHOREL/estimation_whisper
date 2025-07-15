@@ -14,6 +14,8 @@ from services.database.models import ajoute_model
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 AVAILABLE_MODELS = {
     "w-tiny": "openai/whisper-tiny",
     "w-base": "openai/whisper-base", 
@@ -77,7 +79,7 @@ def load_model_whisper(app, model):
 
     start_time = time.perf_counter()
     processor = AutoProcessor.from_pretrained(vrai_modele)
-    modele = AutoModelForSpeechSeq2Seq.from_pretrained(vrai_modele)
+    modele = AutoModelForSpeechSeq2Seq.from_pretrained(vrai_modele, device_map="auto")
     _ = modele.eval() #Forcer le chargement complet du modèle  
     app.state.models[model] = {"processor": processor, "model": modele}
     end_time = time.perf_counter()
@@ -90,6 +92,7 @@ def load_model_wav2vec(app, model):
     start_time = time.perf_counter()    
     processor = Wav2Vec2Processor.from_pretrained(vrai_modele)
     modele = Wav2Vec2ForCTC.from_pretrained(vrai_modele)
+    modele = modele.to(device)
     _ = modele.eval() #Forcer le chargement complet du modèle  
     app.state.models[model] = {"processor": processor, "model": modele}
     end_time = time.perf_counter()

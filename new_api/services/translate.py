@@ -11,6 +11,8 @@ import librosa
 import torch
 import time
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 
 
 def get_full_path(id_audio, batch_audio):
@@ -42,6 +44,7 @@ def translate_one_with_whisper(app, nom_model, id_audio, batch_audio):
 
     start_time = time.perf_counter()
     inputs = processor(audio_data, sampling_rate=sampling_rate, return_tensors="pt")
+    inputs = {k: v.to(device) for k, v in inputs.items()}
 
     generate_kwargs = {}
     generate_kwargs["language"] = "fr"
@@ -64,6 +67,7 @@ def translate_one_with_wav2vec(app, nom_model, id_audio, batch_audio):
 
     start_time = time.perf_counter()
     inputs = processor(audio_data, sampling_rate=sampling_rate, return_tensors="pt")
+    inputs = {k: v.to(device) for k, v in inputs.items()}
     
     with torch.no_grad():
         logits = model(**inputs).logits
@@ -88,6 +92,7 @@ def translate_one_with_kyutai(app, nom_model, id_audio, batch_audio):
 
     start_time = time.perf_counter()
     inputs = processor(audio_data, sampling_rate=sampling_rate, return_tensors="pt")
+    inputs = {k: v.to(device) for k, v in inputs.items()}
 
     predicted_ids = model.generate(**inputs)
     transcription = processor.batch_decode(predicted_ids, skip_special_tokens=True)

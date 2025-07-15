@@ -21,43 +21,44 @@ rouge-score>=0.1.2
 nltk>=3.8.0
 evaluate>=0.4.0
 
-# API and web
+# API and web framework
 fastapi>=0.100.0
 uvicorn[standard]>=0.23.0
 python-multipart>=0.0.6
 requests>=2.31.0
 
-# Data processing
-seaborn>=0.12.0
+# Data processing and visualization
 plotly>=5.14.0
 kaleido>=0.2.1
 
 # Environment and utilities
 python-dotenv>=1.0.0
-pathlib
-argparse
-logging
-csv
 tqdm>=4.65.0
 
 # Speech models specific
 accelerate>=0.20.0
 safetensors>=0.3.0
 pyctcdecode>=0.5.0
-nemo-toolkit[asr]>=1.20.0
+speechbrain>=0.5.15
+
+# Hugging Face dependencies
+huggingface-hub>=0.16.0
+tokenizers>=0.13.0
 
 # SeamlessM4T dependencies
 tiktoken>=0.5.0
 blobfile>=2.1.0
 sentencepiece>=0.1.99
 
+# Database
+mysql-connector-python>=8.0.0
+
 # Optional but recommended for performance
+protobuf>=3.20.0
+
+# NeMo toolkit (commented out as it can cause conflicts)
+# nemo-toolkit[asr]>=1.20.0
+
+# Optional performance optimizations (uncomment if needed)
 # optimum>=1.9.0
-# onnxruntime>=1.15.0
-protobuf
-
-# Added from the code block
-speechbrain>=0.5.15
-
-# Added from the code block
-mysql-connector-python>=8.0.0 
+# onnxruntime>=1.15.0 

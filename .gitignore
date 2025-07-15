@@ -26,6 +26,7 @@ whisper_env/
 venv/
 env/
 ENV/
+venv_ml/
 
 # IDE
 .vscode/
@@ -66,3 +67,7 @@ archive_old_evaluations/
 .cache/
 
 .env
+
+
+docket.sh
+docker-compose.yml
