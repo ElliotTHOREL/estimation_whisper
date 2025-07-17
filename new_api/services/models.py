@@ -1,7 +1,7 @@
 import torch
 import logging
 from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, Wav2Vec2Processor, Wav2Vec2ForCTC
-
+from speechbrain.inference import EncoderDecoderASR
 
 from datasets import load_dataset
 from dotenv import load_dotenv
@@ -14,7 +14,7 @@ from services.database.models import ajoute_model
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+#device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 AVAILABLE_MODELS = {
     "w-tiny": "openai/whisper-tiny",
@@ -27,6 +27,7 @@ AVAILABLE_MODELS = {
     "b-w-large-v3-distil": "bofenghuang/whisper-large-v3-french-distil-dec16",
     "b-w-small-cv11": "bofenghuang/whisper-small-cv11-french",
     "kyutai-1b": "kyutai/stt-1b-en_fr-trfs",
+    "voxtral-3B": "mistralai/Voxtral-Mini-3B-2507",
 
     "w2-b-960h": "facebook/wav2vec2-base-960h",
     "w2-large": "facebook/wav2vec2-large-xlsr-53-french",
@@ -34,6 +35,9 @@ AVAILABLE_MODELS = {
     "b-w2-1b" :"bofenghuang/asr-wav2vec2-xls-r-1b-ctc-french",
 
     "seamless-m4t-v2": "facebook/seamless-m4t-v2-large",
+
+    "sb-crdnn-fr":"speechbrain/asr-crdnn-commonvoice-fr",
+    "sb-wav2vec2-fr": "speechbrain/asr-wav2vec2-commonvoice-fr",
 }
 
 #On essaiera
@@ -66,10 +70,12 @@ def load_model(app, model):
         logging.info(f"Le modèle {model} est déjà chargé")
         return
     
-    if model in ["w-tiny", "w-base", "w-small", "w-medium", "w-large-v2", "w-large-v3","b-w-large-v3","b-w-large-v3-distil","b-w-small-cv11","kyutai-1b","seamless-m4t-v2"]:
+    if model in ["w-tiny", "w-base", "w-small", "w-medium", "w-large-v2", "w-large-v3","b-w-large-v3","b-w-large-v3-distil","b-w-small-cv11","kyutai-1b","seamless-m4t-v2","voxtral-3B"]:
         load_model_whisper(app, model)
     elif model in ["w2-b-960h","w2-large","b-w2","b-w2-1b"]:
         load_model_wav2vec(app, model)
+    elif model in ["sb-crdnn-fr", "sb-wav2vec2-fr"]:
+        load_model_speechbrain(app, model)
     else:
         raise ValueError(f"Le modèle {model} n'est pas supporté")
         
@@ -79,7 +85,8 @@ def load_model_whisper(app, model):
 
     start_time = time.perf_counter()
     processor = AutoProcessor.from_pretrained(vrai_modele)
-    modele = AutoModelForSpeechSeq2Seq.from_pretrained(vrai_modele, device_map="auto")
+    modele = AutoModelForSpeechSeq2Seq.from_pretrained(vrai_modele)#, device_map="auto")
+    
     _ = modele.eval() #Forcer le chargement complet du modèle  
     app.state.models[model] = {"processor": processor, "model": modele}
     end_time = time.perf_counter()
@@ -92,7 +99,7 @@ def load_model_wav2vec(app, model):
     start_time = time.perf_counter()    
     processor = Wav2Vec2Processor.from_pretrained(vrai_modele)
     modele = Wav2Vec2ForCTC.from_pretrained(vrai_modele)
-    modele = modele.to(device)
+    #modele = modele.to(device)
     _ = modele.eval() #Forcer le chargement complet du modèle  
     app.state.models[model] = {"processor": processor, "model": modele}
     end_time = time.perf_counter()
@@ -100,6 +107,15 @@ def load_model_wav2vec(app, model):
     ajoute_model(model, duree_chargement)
 
 
+def load_model_speechbrain(app, model):
+    vrai_modele = AVAILABLE_MODELS[model]
+    start_time = time.perf_counter()
+    modele = EncoderDecoderASR.from_hparams(source=vrai_modele, savedir=f"pretrained_models/{model}")
+    _ = modele.eval()
+    app.state.models[model] = {"model": modele}
+    end_time = time.perf_counter()
+    duree_chargement = end_time - start_time
+    ajoute_model(model, duree_chargement)
 
 #READ
 def get_all_active_models(app):
@@ -114,7 +130,17 @@ def get_all_active_models(app):
 #DELETE
 
 def unload_model(app, model):
+
+
+
     if model in app.state.models:
+
+        if 'processor' in app.state.models[model]:
+            del app.state.models[model]['processor']
+        if 'model' in app.state.models[model]:
+            del app.state.models[model]['model']
+
+
         del app.state.models[model]
     else:
         logging.info(f"Le modèle {model} n'est pas chargé")
@@ -126,16 +152,25 @@ def unload_model(app, model):
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
 
+
+
+
+
 def clear_models(app):
-    for model in app.state.models.copy():
-        del app.state.models[model]
+    for model in list(app.state.models.keys()):
+        unload_model(app, model)
     
     
     gc.collect()  # Au cas où il y aurait des références circulaires
     
+
+    app.state.models.clear()
+    gc.collect()
+
     # Pour GPU (si utilisé)
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
+        torch.cuda.synchronize()
 
 
 

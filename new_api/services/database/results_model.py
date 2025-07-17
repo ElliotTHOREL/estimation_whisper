@@ -1,9 +1,10 @@
 from connection import get_db_cursor
 
-from services.models import get_all_active_models, load_model
+from services.models import get_all_active_models, load_model, unload_model
 from services.database.results import translate_many_models_many_audios
 from services.database.batch_audio import get_batch_audio_size, get_all_batch_audio
 
+import psutil
 
 #CREATE
 def create_table_results_model():
@@ -21,6 +22,9 @@ def create_table_results_model():
 
 
 def ajoute_result_model(app, model, nom_batch, taille_echantillon, replace):
+    mem_before = psutil.virtual_memory().percent
+    print(f"Mémoire avant: {mem_before:.1f}%")
+
 
     if model not in [nom for (nom, _) in get_all_active_models(app)]:
         load_model(app, model)
@@ -51,6 +55,12 @@ def ajoute_result_model(app, model, nom_batch, taille_echantillon, replace):
         
     print("Résultats ajoutés avec succès")
 
+    mem_before = psutil.virtual_memory().percent
+    print(f"Mémoire avant unload: {mem_before:.1f}%")
+    unload_model(app, model)
+    mem_before = psutil.virtual_memory().percent
+    print(f"Mémoire après unload: {mem_before:.1f}%")
+
 def ajoute_result_all_model(app, nom_batch, taille_echantillon, replace):
     for model in get_all_active_models(app):
         ajoute_result_model(app, model, nom_batch, taille_echantillon, replace)
@@ -61,10 +71,6 @@ def get_all_results_model():
     with get_db_cursor() as cursor:
         cursor.execute("SELECT * FROM results_model")
         return cursor.fetchall()
-
-
-
-
 
 #DELETE
 def delete_results_model(id):
