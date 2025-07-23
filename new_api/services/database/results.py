@@ -1,6 +1,7 @@
 import mysql.connector
 from services.models import  get_all_active_models
 from services.database.audio import get_all_audio, get_sentence_originale
+from services.translate import translate_one
 
 from jiwer import wer
 from connection import get_db_cursor
@@ -60,7 +61,11 @@ def create_table_results():
 def ajoute_result(model, id_audio, batch_audio, transcription_result, duree, replace):
     with get_db_cursor() as cursor:
         sentence_originale = get_sentence_originale(id_audio, batch_audio)
-        wer_transcription = wer(normalize_text(sentence_originale), normalize_text(transcription_result))
+        if sentence_originale == "TBD":
+            wer_transcription = -1
+        else:
+            wer_transcription = wer(normalize_text(sentence_originale), normalize_text(transcription_result))
+        
 
         if replace:
             # Supprime l'enregistrement existant s'il existe
@@ -112,8 +117,6 @@ def ajoute_result(model, id_audio, batch_audio, transcription_result, duree, rep
 
 
 def translate_many_models_many_audios(app, liste_models, batch_audio, deb, fin, replace ):
-    from services.translate import translate_one
-
     for id_audio in range(deb, fin):
         for model in liste_models:
             if replace or not check_results(id_audio, batch_audio, model):
@@ -127,8 +130,6 @@ def translate_all_models_many_audios(app, replace, batch_audio, deb, fin):
         
 
 def translate_many_models_all_audios(app, liste_models, replace):
-    from services.translate import translate_one
-
     for (id_audio, batch_audio, _ , _) in get_all_audio():
         for model in liste_models:
             if replace or not check_results(id_audio, batch_audio, model):
@@ -154,6 +155,14 @@ def check_results(id_audio, nom_batch, nom_model):
         result = cursor.fetchone()[0]
         return result > 0
 
+
+def get_results(id_audio, nom_batch, nom_model):
+    with get_db_cursor() as cursor:
+        cursor.execute("""
+            SELECT transcription_result, wer FROM audio_model_results WHERE id_audio = %s AND batch_audio = %s AND id_model = (SELECT id FROM modele WHERE name = %s)
+        """, (id_audio, nom_batch, nom_model))
+        result = cursor.fetchone()
+        return result
 #DELETE
 def reset_results():
     with get_db_cursor() as cursor:

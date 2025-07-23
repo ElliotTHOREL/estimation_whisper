@@ -26,6 +26,17 @@ async def translate_all(request: Request, replace = True):
 async def estimer_wer_transcriptions():
     services_results_database.estimer_tous_les_wer()
 
+
+#READ
+@router.get("/")
+async def get_results(id_audio: int, nom_batch: str, nom_model: str):
+    return services_results_database.get_results(id_audio, nom_batch, nom_model)
+
+
+
+
+
+
 #DELETE
 @router.delete("/all")
 async def reset_results():

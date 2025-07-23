@@ -27,7 +27,6 @@ AVAILABLE_MODELS = {
     "b-w-large-v3-distil": "bofenghuang/whisper-large-v3-french-distil-dec16",
     "b-w-small-cv11": "bofenghuang/whisper-small-cv11-french",
     "kyutai-1b": "kyutai/stt-1b-en_fr-trfs",
-    "voxtral-3B": "mistralai/Voxtral-Mini-3B-2507",
 
     "w2-b-960h": "facebook/wav2vec2-base-960h",
     "w2-large": "facebook/wav2vec2-large-xlsr-53-french",
@@ -70,7 +69,7 @@ def load_model(app, model):
         logging.info(f"Le modèle {model} est déjà chargé")
         return
     
-    if model in ["w-tiny", "w-base", "w-small", "w-medium", "w-large-v2", "w-large-v3","b-w-large-v3","b-w-large-v3-distil","b-w-small-cv11","kyutai-1b","seamless-m4t-v2","voxtral-3B"]:
+    if model in ["w-tiny", "w-base", "w-small", "w-medium", "w-large-v2", "w-large-v3","b-w-large-v3","b-w-large-v3-distil","b-w-small-cv11","kyutai-1b","seamless-m4t-v2"]:
         load_model_whisper(app, model)
     elif model in ["w2-b-960h","w2-large","b-w2","b-w2-1b"]:
         load_model_wav2vec(app, model)

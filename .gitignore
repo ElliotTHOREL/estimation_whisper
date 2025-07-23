@@ -52,7 +52,18 @@ Thumbs.db
 *.temp
 
 # Dataset (trop volumineux pour git)
-cv-corpus-*/
+audio_files/
+
+benchmarks/
+
+model_checkpoints/
+
+pretrained_models/
+
+
+
+
+
 
 # Résultats d'évaluation (optionnel - décommenter si vous ne voulez pas les versionner)
 # evaluation/benchmarks/*.json

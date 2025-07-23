@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import os
 
 
 from connection import get_db_cursor
@@ -39,6 +40,7 @@ def create_graphe_perf():
         # Configuration des axes et titre
         plt.xlabel('Durée moyenne (secondes)', fontsize=12)
         plt.ylabel('WER moyen (%)', fontsize=12)
+        plt.yscale('log')
         plt.title('Performance des modèles : WER vs Durée de traitement', fontsize=14, fontweight='bold')
 
         # Grille pour une meilleure lisibilité
@@ -50,13 +52,17 @@ def create_graphe_perf():
 
         output_folder = "benchmarks"  # Changez selon votre dossier souhaité
         filename = "wer_vs_duration.png"
+
+        os.makedirs(output_folder, exist_ok=True)
+        print("plouf")
         filepath = f"{output_folder}/{filename}"
 
 
         plt.savefig(filepath, dpi=300, bbox_inches='tight')
 
 
-
+if __name__ == "__main__":
+    create_graphe_perf()
 
 
 

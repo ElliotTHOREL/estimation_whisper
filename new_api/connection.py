@@ -5,7 +5,7 @@ from contextlib import contextmanager
 # Configuration du pool (une seule fois au démarrage)
 DB_CONFIG = {
     'host': os.getenv('DB_HOST', 'localhost'),
-    'port': int(os.getenv('DB_PORT', 3306)),
+    'port': int(os.getenv('DB_PORT', 5004)),
     'user': os.getenv('DB_USER', 'admin'),
     'password': os.getenv('DB_PASSWORD', 'pwd'),
     'database': os.getenv('DB_NAME', 'db_audio'),

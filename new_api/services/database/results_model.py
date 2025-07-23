@@ -1,6 +1,6 @@
 from connection import get_db_cursor
 
-from services.models import get_all_active_models, load_model, unload_model
+from services.models import get_all_active_models, load_model, unload_model, AVAILABLE_MODELS
 from services.database.results import translate_many_models_many_audios
 from services.database.batch_audio import get_batch_audio_size, get_all_batch_audio
 
@@ -21,9 +21,11 @@ def create_table_results_model():
         """)
 
 
+
+
+
 def ajoute_result_model(app, model, nom_batch, taille_echantillon, replace):
-    mem_before = psutil.virtual_memory().percent
-    print(f"Mémoire avant: {mem_before:.1f}%")
+
 
 
     if model not in [nom for (nom, _) in get_all_active_models(app)]:
@@ -55,15 +57,25 @@ def ajoute_result_model(app, model, nom_batch, taille_echantillon, replace):
         
     print("Résultats ajoutés avec succès")
 
-    mem_before = psutil.virtual_memory().percent
-    print(f"Mémoire avant unload: {mem_before:.1f}%")
-    unload_model(app, model)
-    mem_before = psutil.virtual_memory().percent
-    print(f"Mémoire après unload: {mem_before:.1f}%")
 
-def ajoute_result_all_model(app, nom_batch, taille_echantillon, replace):
-    for model in get_all_active_models(app):
+
+def generate_all_results(app, nom_batch, taille_echantillon, replace):
+
+    exclusions = ["seamless-m4t-v2","sb-wav2vec2-fr"]
+
+    ma_liste_filtrée = [x for x in AVAILABLE_MODELS if x not in exclusions]
+
+
+    #for model in AVAILABLE_MODELS:
+    for model in ma_liste_filtrée:
+        mem_before = psutil.virtual_memory().percent
+        print(f"Mémoire avant: {mem_before:.1f}%")
         ajoute_result_model(app, model, nom_batch, taille_echantillon, replace)
+        mem_before = psutil.virtual_memory().percent
+        print(f"Mémoire après: {mem_before:.1f}%")
+        unload_model(app, model)
+        mem_before = psutil.virtual_memory().percent
+        print(f"Mémoire après unload: {mem_before:.1f}%")
 
 
 #READ

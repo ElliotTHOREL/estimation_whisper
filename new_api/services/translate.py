@@ -1,49 +1,51 @@
-from transformers import pipeline
+from services.audio_manager import  Audio_file, Chunk_audio
 
-from services.models import  get_all_active_models
-from services.database.audio import get_all_audio, get_audio_path
-from services.database.batch_audio import get_batch_audio_path
-from services.database.results import ajoute_result
-
-
-import os
-import librosa
 import torch
 import time
 
-import logging
 
 #device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 
-def get_full_path(id_audio, batch_audio):
-    path_batch = get_batch_audio_path(batch_audio)
-    path_spe_audio = get_audio_path(id_audio, batch_audio)
-    return os.path.join(path_batch, path_spe_audio)
+def translate_one (app, nom_model, id_audio, batch_audio):
+    audio_file = Audio_file(id_audio, batch_audio)
+    audio_file.get_liste_chunks()
+    transcriptions = []
+    total_duration = 0.0
+    for chunk in audio_file.liste_chunks:
+        print("translate_one", chunk.duration_ms, time.time())
+        transcription, duree = translate_one_chunk(app, nom_model, chunk)
+        transcriptions.append(transcription)
+        total_duration += duree
+    full_transcription = " ".join(transcriptions)
+    return full_transcription, total_duration
 
-def translate_one(app, nom_model, id_audio, batch_audio):  
+
+
+
+
+
+def translate_one_chunk(app, nom_model, chunk):  
     if nom_model not in app.state.models:
         raise ValueError(f"Le modèle {nom_model} n'est pas chargé")
 
-    if nom_model in ["w-tiny", "w-base", "w-small", "w-medium", "w-large-v2", "w-large-v3","b-w-large-v3","b-w-large-v3-distil","b-w-small-cv11","seamless-m4t-v2","voxtral-3B"]:
-        transcription, duree = translate_one_with_whisper(app, nom_model, id_audio, batch_audio)
+    if nom_model in ["w-tiny", "w-base", "w-small", "w-medium", "w-large-v2", "w-large-v3","b-w-large-v3","b-w-large-v3-distil","b-w-small-cv11","seamless-m4t-v2"]:
+        transcription, duree = translate_one_chunk_with_whisper(app, nom_model, chunk)
     elif nom_model in ["w2-b-960h", "w2-large", "b-w2", "b-w2-1b"]:
-        transcription, duree = translate_one_with_wav2vec(app, nom_model, id_audio, batch_audio)
+        transcription, duree = translate_one_chunk_with_wav2vec(app, nom_model,  chunk)
     elif nom_model in ["kyutai-1b"]:
-        transcription, duree = translate_one_with_kyutai(app, nom_model, id_audio, batch_audio)
+        transcription, duree = translate_one_chunk_with_kyutai(app, nom_model,  chunk)
     elif nom_model in ["sb-crdnn-fr", "sb-wav2vec2-fr"]:
-        transcription, duree = translate_one_with_speechbrain(app, nom_model, id_audio, batch_audio)
+        transcription, duree = translate_one_chunk_with_speechbrain(app, nom_model,  chunk)
     
     return transcription, duree
 
-def translate_one_with_whisper(app, nom_model, id_audio, batch_audio):
-    path_audio = get_full_path(id_audio, batch_audio)
-
+def translate_one_chunk_with_whisper(app, nom_model, chunk:Chunk_audio):
     processor = app.state.models[nom_model]["processor"]
     model = app.state.models[nom_model]["model"]
 
-    audio_data, sampling_rate = librosa.load(path_audio, sr=16000)
+    audio_data, sampling_rate = chunk.get_audio_data(), chunk.sr
 
     start_time = time.perf_counter()
     inputs = processor(audio_data, sampling_rate=sampling_rate, return_tensors="pt", attention_mask=True)
@@ -54,19 +56,18 @@ def translate_one_with_whisper(app, nom_model, id_audio, batch_audio):
     
     predicted_ids = model.generate(**inputs, **generate_kwargs)
     transcription = processor.batch_decode(predicted_ids, skip_special_tokens=True)
+
     end_time = time.perf_counter()
 
     duree = end_time - start_time
 
     return transcription[0], duree
 
-def translate_one_with_wav2vec(app, nom_model, id_audio, batch_audio):
-    path_audio = get_full_path(id_audio, batch_audio)
-
+def translate_one_chunk_with_wav2vec(app, nom_model, chunk:Chunk_audio):
     processor = app.state.models[nom_model]["processor"]
     model = app.state.models[nom_model]["model"]
 
-    audio_data, sampling_rate = librosa.load(path_audio, sr=16000)
+    audio_data, sampling_rate = chunk.get_audio_data(), chunk.sr
 
     start_time = time.perf_counter()
     inputs = processor(audio_data, sampling_rate=sampling_rate, return_tensors="pt", attention_mask=True)
@@ -85,13 +86,12 @@ def translate_one_with_wav2vec(app, nom_model, id_audio, batch_audio):
 
 
 
-def translate_one_with_kyutai(app, nom_model, id_audio, batch_audio):
-    path_audio = get_full_path(id_audio, batch_audio)
+def translate_one_chunk_with_kyutai(app, nom_model, chunk:Chunk_audio):
     
     processor = app.state.models[nom_model]["processor"]
     model = app.state.models[nom_model]["model"]
     
-    audio_data, sampling_rate = librosa.load(path_audio, sr=24000)
+    audio_data, sampling_rate = chunk.get_audio_data(), chunk.sr
 
     start_time = time.perf_counter()
     inputs = processor(audio_data, sampling_rate=sampling_rate, return_tensors="pt", attention_mask=True)
@@ -105,14 +105,19 @@ def translate_one_with_kyutai(app, nom_model, id_audio, batch_audio):
 
     return transcription[0], duree
 
-def translate_one_with_speechbrain(app, nom_model, id_audio, batch_audio):
-    path_audio = get_full_path(id_audio, batch_audio)
+
+
+def translate_one_chunk_with_speechbrain(app, nom_model, chunk:Chunk_audio):
+    audio_data, sampling_rate = chunk.get_audio_data(), chunk.sr
 
     model = app.state.models[nom_model]["model"]
 
     start_time = time.perf_counter()
 
-    transcription = model.transcribe_file(path_audio)
+    audio_np = chunk.get_audio_data()
+    waveform = torch.tensor(audio_np).unsqueeze(0)
+    waveform = waveform.to(model.device)
+    transcription = model.transcribe_batch(waveform, torch.tensor([waveform.shape[1]]))
 
     end_time = time.perf_counter()
     duree = end_time - start_time

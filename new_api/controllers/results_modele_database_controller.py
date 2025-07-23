@@ -11,6 +11,10 @@ async def ajoute_result_model(request: Request, model: str, nom_batch: str, tail
     services_results_model_database.ajoute_result_model(request.app, model, nom_batch, taille_echantillon, replace)
 
 
+@router.post("/all")
+async def generate_all_results(request: Request, nom_batch: str, taille_echantillon: int, replace: bool = False):
+    services_results_model_database.generate_all_results(request.app, nom_batch, taille_echantillon, replace)
+
 
 
 #READ  
