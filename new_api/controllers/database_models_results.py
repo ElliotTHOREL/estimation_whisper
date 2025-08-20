@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Request
-import services.database.results_model as services_results_model_database
+import services.database.models_results as services_results_model_database
 
 
-router = APIRouter(prefix="/results_modele_database", tags=["Results modèle database"])
+router = APIRouter(prefix="/database_models_results", tags=["Database models results"])
 
 
 #CREATE

@@ -1,0 +1,104 @@
+[
+    {
+        "name": "w-tiny",
+        "vrai_modele": "openai/whisper-tiny",
+        "type_modele": "whisper",
+        "sampling_rate": 16000
+    },
+    {
+        "name": "w-base",
+        "vrai_modele": "openai/whisper-base",
+        "type_modele": "whisper",
+        "sampling_rate": 16000
+    },
+    {
+        "name": "w-small",
+        "vrai_modele": "openai/whisper-small",
+        "type_modele": "whisper",
+        "sampling_rate": 16000
+    },
+    {
+        "name": "w-medium",
+        "vrai_modele": "openai/whisper-medium",
+        "type_modele": "whisper",
+        "sampling_rate": 16000
+    },
+    {
+        "name": "w-large-v2",
+        "vrai_modele": "openai/whisper-large-v2",
+        "type_modele": "whisper",
+        "sampling_rate": 16000
+    },
+    {
+        "name": "w-large-v3",
+        "vrai_modele": "openai/whisper-large-v3",
+        "type_modele": "whisper",
+        "sampling_rate": 16000
+    },
+    {
+        "name": "b-w-large-v3",
+        "vrai_modele": "bofenghuang/whisper-large-v3-french",
+        "type_modele": "whisper",
+        "sampling_rate": 16000
+    },
+    {
+        "name": "b-w-large-v3-distil",
+        "vrai_modele": "bofenghuang/whisper-large-v3-french-distil-dec16",
+        "type_modele": "whisper",
+        "sampling_rate": 16000
+    },
+    {
+        "name": "b-w-small-cv11",
+        "vrai_modele": "bofenghuang/whisper-small-cv11-french",
+        "type_modele": "whisper",
+        "sampling_rate": 16000
+    },
+    {
+        "name": "kyutai-1b",
+        "vrai_modele": "kyutai/stt-1b-en_fr-trfs",
+        "type_modele": "kyutai",
+        "sampling_rate": 24000
+    },
+    {
+        "name": "w2-b-960h",
+        "vrai_modele": "facebook/wav2vec2-base-960h",
+        "type_modele": "wav2vec2",
+        "sampling_rate": 16000
+    },
+    {
+        "name": "w2-large",
+        "vrai_modele": "facebook/wav2vec2-large-xlsr-53-french",
+        "type_modele": "wav2vec2",
+        "sampling_rate": 16000
+    },
+    {
+        "name": "b-w2",
+        "vrai_modele": "bofenghuang/asr-wav2vec2-ctc-french",
+        "type_modele": "wav2vec2",
+        "sampling_rate": 16000
+    },
+    {
+        "name": "b-w2-1b",
+        "vrai_modele": "bofenghuang/asr-wav2vec2-xls-r-1b-ctc-french",
+        "type_modele": "wav2vec2",
+        "sampling_rate": 16000
+    },
+    {
+        "name": "seamless-m4t-v2",
+        "vrai_modele": "facebook/seamless-m4t-v2-large",
+        "type_modele": "seamless",
+        "sampling_rate": 16000
+    },
+    {
+        "name": "sb-crdnn-fr",
+        "vrai_modele": "speechbrain/asr-crdnn-commonvoice-fr",
+        "type_modele": "speechbrain_seq2seq",
+        "sampling_rate": 16000
+    },
+    {
+        "name": "sb-wav2vec2-fr",
+        "vrai_modele": "speechbrain/asr-wav2vec2-commonvoice-fr",
+        "type_modele": "speechbrain_ctc",
+        "sampling_rate": 16000
+    }
+]

@@ -58,12 +58,4 @@ def get_number_of_audio():
 #UPDATE -> pas d'update
 
 
-#DELETE
-def reset_audio():
-    from services.database.results import create_table_results
-    with get_db_cursor() as cursor:
-        cursor.execute("DROP TABLE IF EXISTS audio_model_results")
-        cursor.execute("DROP TABLE IF EXISTS audio")
-    create_table_audio()
-    create_table_results()
-
+#DELETE -> pas de delete, on le fait au niveau de batch_audio

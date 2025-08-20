@@ -5,6 +5,9 @@ import os
 router = APIRouter(prefix="/batch_audio_database", tags=["Database batch audio"])
 
 
+
+
+
 #CREATE
 @router.post("/load")
 async def load_batch_audio(name, path, path_fichier_metadonnees):
@@ -16,6 +19,10 @@ async def get_all_batch_audio():
     return services_batch_audio.get_all_batch_audio()
 
 #DELETE
+@router.delete("/")
+async def delete_batch_audio(name):
+    services_batch_audio.delete_batch_audio(name)
+
 @router.delete("/all")
 async def reset_batch_audio():
     services_batch_audio.reset_batch_audio()

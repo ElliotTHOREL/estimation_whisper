@@ -45,7 +45,7 @@ def add_batch_audio_extended(name, path, path_fichier_metadonnees):
 def get_all_batch_audio():
     with get_db_cursor() as cursor:
         cursor.execute("SELECT name FROM batch_audio")
-        return cursor.fetchall()
+        return [row[0] for row in cursor.fetchall()]
 
 
 def get_batch_audio_path(name):
@@ -79,3 +79,10 @@ def reset_batch_audio():
     create_table_batch_audio()
     create_table_audio()
     create_table_results()
+
+
+def delete_batch_audio(name):
+    with get_db_cursor() as cursor:
+        cursor.execute("DELETE FROM batch_audio WHERE name = %s", (name,))
+        cursor.execute("DELETE FROM audio WHERE batch = %s", (name,))
+

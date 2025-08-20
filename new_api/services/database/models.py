@@ -1,87 +1,99 @@
 from connection import get_db_cursor
 
+from enum import Enum
+from pydantic import BaseModel
+import json
+import logging
 
+TYPES_VALIDES = {"whisper", "wav2vec2", "kyutai", "speechbrain_seq2seq", "speechbrain_ctc", "seamless"}
 
-
+#CREATE
 def create_table_models():
     with get_db_cursor() as cursor:
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS modele (
                 id INT PRIMARY KEY AUTO_INCREMENT,
                 name VARCHAR(100) NOT NULL UNIQUE,
-                duree_chargement FLOAT
+                vrai_modele TEXT NOT NULL,
+                type_modele VARCHAR(100) NOT NULL,
+                sampling_rate INT NOT NULL
             )
         """)
 
-    
-def ajoute_model(model, temps_chargement):
-    with get_db_cursor() as cursor:
-        # Vérifier si le modèle existe déjà
-        cursor.execute("SELECT COUNT(*) FROM modele WHERE name = %s", (model,))
-        exists = cursor.fetchone()[0] > 0
-
-        if not exists:
-            # Insérer seulement si n'existe pas
-            cursor.execute("""
-                INSERT INTO modele (name, duree_chargement) VALUES (%s, %s)
-            """, (model, temps_chargement))
-        else:
-            # Mettre à jour le temps de chargement si existe
-            cursor.execute("""
-                UPDATE modele SET duree_chargement = %s WHERE name = %s
-            """, (temps_chargement, model))
-        
-
-
-
-def get_all_models():
+#READ
+def get_all_model_names():
     with get_db_cursor() as cursor:
         cursor.execute("SELECT name FROM modele")
+        return [name for (name,) in cursor.fetchall()]
+    
+def get_all_models():
+    with get_db_cursor() as cursor:
+        cursor.execute("SELECT * FROM modele")
         return cursor.fetchall()
-    
+
+def get_types_valides():
+    return TYPES_VALIDES
 
 
-
-def delete_all_models():
+def find_type_modele(name_model):
     with get_db_cursor() as cursor:
-        cursor.execute("DELETE FROM modele")
+        cursor.execute("SELECT type_modele FROM modele WHERE name = %s", (name_model,))
+        return cursor.fetchone()[0]
+
+def find_vrai_modele(name_model):
+    with get_db_cursor() as cursor:
+        cursor.execute("SELECT vrai_modele FROM modele WHERE name = %s", (name_model,))
+        return cursor.fetchone()[0]
+
+def find_sr_modele(name_model):
+    with get_db_cursor() as cursor:
+        cursor.execute("SELECT sampling_rate FROM modele WHERE name = %s", (name_model,))
+        return cursor.fetchone()[0]
+
+#UPDATE
+def ajoute_model(model:str, vrai_modele:str, type_modele:str, sampling_rate:int):
+    if type_modele not in TYPES_VALIDES:
+        logging.warning(f"Le type de modèle {type_modele} n'est pas valide")
+        return
+
+    try:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+                INSERT INTO modele (name, vrai_modele, type_modele, sampling_rate)
+                VALUES (%s, %s, %s, %s)
+                ON DUPLICATE KEY UPDATE
+                    vrai_modele = VALUES(vrai_modele),
+                    type_modele = VALUES(type_modele),
+                    sampling_rate = VALUES(sampling_rate)
+            """, (model, vrai_modele, type_modele, sampling_rate))
+    except Exception as e:
+        logging.error(f"Erreur lors de l'ajout du modèle {model}: {e}")
 
 
-def calculate_wer(model):
+def add_all_base_models():
+    with open("new_api/services/database/base_models.json", "r", encoding="utf-8") as f:
+        base_models = json.load(f)
+    for model in base_models:
+        ajoute_model(model["name"], model["vrai_modele"], model["type_modele"], model["sampling_rate"])
 
+
+
+
+#DELETE
+
+def delete_model(model:str):
     with get_db_cursor() as cursor:
         cursor.execute("""
-            SELECT AVG(audio_model_results.wer) FROM audio_model_results
-            JOIN modele ON audio_model_results.id_model = modele.id
-            WHERE modele.name = %s AND audio_model_results.wer IS NOT NULL
+            DELETE audio_model_results
+            FROM audio_model_results
+            INNER JOIN modele ON audio_model_results.id_model = modele.id
+            WHERE modele.name = %s
         """, (model,))
-        avg_wer = cursor.fetchone()[0]
-
-        # Insérer ou mettre à jour la moyenne dans une table dédiée (par exemple, modele_wer)
-        # On suppose qu'il existe une table 'modele_wer' avec les colonnes id_model et avg_wer
-        cursor.execute("""
-            UPDATE modele
-            SET wer = %s
-            WHERE name = %s
-        """, (avg_wer, model))
-
-
-
-def calculate_wer_full(app):
-    """Calcule les wer de tous les modèles actifs de l'app""" 
-    from services.database.results import estimer_tous_les_wer, translate_all
-    from services.models import get_all_active_models 
-    
-    translate_all(app, False)
-    estimer_tous_les_wer()
-    
-    liste_models = [nom for (nom, _) in get_all_active_models(app)]
-    for model in liste_models:
-        calculate_wer(model)
+        cursor.execute("DELETE FROM modele WHERE name = %s", (model,))
 
 
 def reset_models():
-    from services.database.results import create_table_results
+    from services.database.audio_results import create_table_results
 
     with get_db_cursor() as cursor:
         cursor.execute("DROP TABLE IF EXISTS audio_model_results")

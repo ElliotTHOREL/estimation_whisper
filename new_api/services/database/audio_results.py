@@ -1,12 +1,17 @@
 import mysql.connector
-from services.models import  get_all_active_models
+from services.models import load_model, unload_model 
+from services.database.models import get_all_model_names
 from services.database.audio import get_all_audio, get_sentence_originale
 from services.translate import translate_one
+from services.database.batch_audio import get_all_batch_audio
 
+
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from jiwer import wer
 from connection import get_db_cursor
 import re
 import string
+import logging
 
 
 def normalize_text(text: str) -> str:
@@ -116,29 +121,83 @@ def ajoute_result(model, id_audio, batch_audio, transcription_result, duree, rep
 
 
 
+
+def worker(app, model, id_audio, batch_audio, replace):
+    if replace or not check_results(id_audio, batch_audio, model):
+        transcription_result, durée = translate_one(app, model, id_audio, batch_audio)
+        ajoute_result(model, id_audio, batch_audio, transcription_result, durée, replace)
+
+
 def translate_many_models_many_audios(app, liste_models, batch_audio, deb, fin, replace ):
-    for id_audio in range(deb, fin):
-        for model in liste_models:
-            if replace or not check_results(id_audio, batch_audio, model):
-                transcription_result, durée = translate_one(app, model, id_audio, batch_audio)
-                ajoute_result(model, id_audio, batch_audio, transcription_result,durée, replace)
+    if batch_audio not in get_all_batch_audio():
+        logging.error(f"Le batch {batch_audio} n'existe pas")
+        return
+
+    for model in liste_models:
+        try:
+            if model not in app.state.models:
+                load_model(app, model)
+
+            with ThreadPoolExecutor(max_workers=10) as executor:
+                futures = []
+                for id_audio in range(deb, fin):
+                    futures.append(
+                        executor.submit(worker, app, model, id_audio, batch_audio, replace)
+                        )
+
+                for future in as_completed(futures):
+                    future.result()
+
+        except Exception as e1:
+            logging.error(f"Échec du mode multi-thread avec le modèle {model} ({e1}), fallback en mode séquentiel")
+            try :
+                for id_audio in range(deb, fin):
+                    worker(app, model, id_audio, batch_audio, replace)
+            except Exception as e2:
+                logging.error(f"Erreur lors de la traduction du modèle {model} en mode séquentiel: {e2}")
+
+        finally:
+            unload_model(app, model)
 
 
-def translate_all_models_many_audios(app, replace, batch_audio, deb, fin):
-    liste_models = [nom for (nom, _) in get_all_active_models(app)]
+def translate_all_models_many_audios(app, batch_audio, deb, fin, replace):
+    liste_models = get_all_model_names()
     translate_many_models_many_audios(app, liste_models, batch_audio, deb, fin, replace) 
         
 
 def translate_many_models_all_audios(app, liste_models, replace):
-    for (id_audio, batch_audio, _ , _) in get_all_audio():
-        for model in liste_models:
-            if replace or not check_results(id_audio, batch_audio, model):
-                transcription_result, durée = translate_one(app, model, id_audio, batch_audio)
-                ajoute_result(model, id_audio, batch_audio, transcription_result,durée, replace)
+    for model in liste_models:
+        try:
+            if model not in app.state.models:
+                load_model(app, model)
+                
+            with ThreadPoolExecutor(max_workers=10) as executor:
+                futures = []
+                for (id_audio, batch_audio, _ , _) in get_all_audio():
+                    futures.append(
+                        executor.submit(worker, app, model, id_audio, batch_audio, replace)
+                        )
+                    for future in as_completed(futures):
+                        future.result()
+
+
+        except Exception as e1:
+            logging.error(f"Échec du mode multi-thread avec le modèle {model} ({e1}), fallback en mode séquentiel")
+            try:  
+                for (id_audio, batch_audio, _ , _) in get_all_audio():
+                    if replace or not check_results(id_audio, batch_audio, model):
+                        transcription_result, durée = translate_one(app, model, id_audio, batch_audio)
+                        ajoute_result(model, id_audio, batch_audio, transcription_result,durée, replace)
+
+            except Exception as e2:
+                logging.error(f"Erreur lors de la traduction du modèle {model}: {e2}")
+
+        finally:
+            unload_model(app, model)
 
 
 def translate_all_models_all_audios(app, replace):
-    liste_models = [nom for (nom, _) in get_all_active_models(app)]
+    liste_models = get_all_model_names()
     translate_many_models_all_audios(app, liste_models, replace)
 
 #READ

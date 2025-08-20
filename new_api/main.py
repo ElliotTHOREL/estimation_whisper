@@ -1,15 +1,26 @@
-import uvicorn
+from dotenv import load_dotenv
 import os
 
+load_dotenv()
+os.environ["HF_HOME"] = os.getenv("HF_HOME")
+
+
+import uvicorn
+
+
+
+from log_config import log_config
 from app import create_app
 from controllers import create_tables, register_routes
 from huggingface_hub import login
 
-# Création de l'app
-app = create_app()
-
 # Connexion à Hugging Face
 login(token=os.getenv("TOKEN_HF"))
+
+
+
+# Création de l'app
+app = create_app()
 
 # Création des tables
 create_tables()
@@ -23,5 +34,6 @@ if __name__ == "__main__":
         "main:app",
         host="0.0.0.0", 
         port=5005,
-        reload=False  # Pour le développement
+        reload=False, # Pour le développement
+        log_config=log_config
     )

@@ -1,10 +1,12 @@
 from connection import get_db_cursor
 
-from services.models import get_all_active_models, load_model, unload_model, AVAILABLE_MODELS
-from services.database.results import translate_many_models_many_audios
+from services.models import load_model, unload_model
+from services.database.audio_results import translate_many_models_many_audios
 from services.database.batch_audio import get_batch_audio_size, get_all_batch_audio
+from services.database.models import get_all_model_names
 
 import psutil
+import logging
 
 #CREATE
 def create_table_results_model():
@@ -22,18 +24,10 @@ def create_table_results_model():
 
 
 
-
-
 def ajoute_result_model(app, model, nom_batch, taille_echantillon, replace):
-
-
-
-    if model not in [nom for (nom, _) in get_all_active_models(app)]:
-        load_model(app, model)
-
-    if nom_batch not in [nom for (nom,) in get_all_batch_audio()]:
-        raise ValueError(f"Le batch {nom_batch} n'existe pas")
-
+    if not replace and check_results_model(model, nom_batch, taille_echantillon):
+        return
+    
     if taille_echantillon > get_batch_audio_size(nom_batch): 
         taille_echantillon = get_batch_audio_size(nom_batch)
 
@@ -54,35 +48,37 @@ def ajoute_result_model(app, model, nom_batch, taille_echantillon, replace):
             AND batch_audio = %s
             GROUP BY id_model, batch_audio
         """, (taille_echantillon, model, nom_batch))
+    
+    logging.info(f"Résultats ajoutés pour le modèle {model} ({taille_echantillon} audio du batch {nom_batch})")
         
-    print("Résultats ajoutés avec succès")
 
 
 
 def generate_all_results(app, nom_batch, taille_echantillon, replace):
+    #exclusions = ["seamless-m4t-v2","sb-wav2vec2-fr"]
+    exclusions = []
 
-    exclusions = ["seamless-m4t-v2","sb-wav2vec2-fr"]
-
-    ma_liste_filtrée = [x for x in AVAILABLE_MODELS if x not in exclusions]
+    ma_liste_filtrée = [model for model in get_all_model_names() if model not in exclusions]
 
 
-    #for model in AVAILABLE_MODELS:
     for model in ma_liste_filtrée:
-        mem_before = psutil.virtual_memory().percent
-        print(f"Mémoire avant: {mem_before:.1f}%")
         ajoute_result_model(app, model, nom_batch, taille_echantillon, replace)
-        mem_before = psutil.virtual_memory().percent
-        print(f"Mémoire après: {mem_before:.1f}%")
-        unload_model(app, model)
-        mem_before = psutil.virtual_memory().percent
-        print(f"Mémoire après unload: {mem_before:.1f}%")
-
 
 #READ
 def get_all_results_model():
     with get_db_cursor() as cursor:
         cursor.execute("SELECT * FROM results_model")
         return cursor.fetchall()
+
+def get_results_model(id_model, nom_batch, taille_echantillon):
+    with get_db_cursor() as cursor:
+        cursor.execute("SELECT duree_moyenne, wer_moyen FROM results_model WHERE id_model = %s AND nom_batch = %s AND taille_echantillon = %s", (id_model, nom_batch, taille_echantillon))
+        return cursor.fetchone()
+
+def check_results_model(id_model, nom_batch, taille_echantillon):
+    with get_db_cursor() as cursor:
+        cursor.execute("SELECT COUNT(*) FROM results_model WHERE id_model = %s AND nom_batch = %s AND taille_echantillon = %s", (id_model, nom_batch, taille_echantillon))
+        return cursor.fetchone()[0] > 0
 
 #DELETE
 def delete_results_model(id):
