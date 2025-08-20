@@ -55,197 +55,103 @@ def translate_one_batch(app, nom_model, batch):
     if nom_model not in app.state.models:
         logging.info(f"Le modèle {nom_model} n'est pas chargé. Chargement en cours...")
         load_model(app, nom_model)
+    
+    if len(batch) == 0:
+        logging.warning("translate_one_batch: batch is empty")
+        return [], 0
 
     type_modele = find_type_modele(nom_model)
-    if type_modele in ("whisper"):
-        transcription, duree = translate_one_batch_with_whisper(app, nom_model, batch)
-    elif type_modele == "wav2vec2":
-        transcription, duree = translate_one_batch_with_wav2vec(app, nom_model,  batch)
-    elif type_modele in ("kyutai"):
-        transcription, duree = translate_one_batch_with_kyutai(app, nom_model,  batch)
-    elif type_modele == "speechbrain_seq2seq":
-        transcription, duree = translate_one_batch_with_speechbrain_seq2seq(app, nom_model,  batch)
-    elif type_modele == "speechbrain_ctc":
-        transcription, duree = translate_one_batch_with_speechbrain_ctc(app, nom_model,  batch)
-    elif type_modele == "seamless":
-        transcription, duree = translate_one_batch_with_seamless(app, nom_model,  batch)
+
+    start_time = time.perf_counter()
+    if type_modele in ("whisper", "wav2vec2", "kyutai", "seamless"): #PIPELINE GENERIQUE
+        transcription= _translate_one_batch_generique(app, nom_model, batch, type_modele)
+    elif type_modele in ("speechbrain_seq2seq", "speechbrain_ctc"): #PIPELINE SPEECHBRAIN (haut niveau)
+        transcription= _translate_one_batch_speechbrain(app, nom_model, batch, type_modele)
+    else:
+        raise ValueError(f"Le modèle {nom_model} n'est pas supporté")
+
+    end_time = time.perf_counter()
+    duree = end_time - start_time
+
     return transcription, duree
 
-def translate_one_batch_with_whisper(app, nom_model, batch:list[Chunk_audio]):
-    if len(batch) == 0:
-        logging.warning("translate_one_batch_with_whisper: batch is empty")
-        return [], 0
-
-    processor = app.state.models[nom_model]["processor"]
-    model = app.state.models[nom_model]["model"]
 
 
-
+def _translate_one_batch_generique(app, nom_model, batch, type_modele):
+    #RECUPERATION DES DONNEES AUDIO
     liste_audio_data = [chunk.get_audio_data() for chunk in batch]
     sampling_rate = batch[0].sr
 
+    #RECUPERATION DU MODELE
+    processor = app.state.models[nom_model]["processor"]
+    model = app.state.models[nom_model]["model"]
 
-
-    start_time = time.perf_counter()
-    inputs = processor(liste_audio_data, sampling_rate=sampling_rate, return_tensors="pt", attention_mask=True)
+    #PROCESSING (audio -> features exploitables)
+    if type_modele in ("seamless"): #particularité du processor seamless
+        inputs = processor(audios=liste_audio_data, sampling_rate=sampling_rate, return_tensors="pt",padding=True)
+    else:
+        inputs = processor(liste_audio_data, sampling_rate=sampling_rate, return_tensors="pt",padding=True)
     inputs = {k: v.to(device) for k, v in inputs.items()}
 
-    generate_kwargs = {}
-    generate_kwargs["language"] = "fr"
+    #TOKENISATION (features -> tokens audio)
+    if type_modele in ("wav2vec2"): #MODELE CTC, on utilise le logit 
+        with torch.no_grad():
+            logits = model(**inputs).logits
+        predicted_ids = torch.argmax(logits, dim=-1)
 
-    with torch.no_grad():
-        predicted_ids = model.generate(**inputs, **generate_kwargs)
+    else : #MODELE SEQ2SEQ (whisper, kyutai, seamless)
+        generate_kwargs = {}
+        if type_modele == "whisper": #spécialisation de la langue pour whisper
+            generate_kwargs["language"] = "fr"
+        elif type_modele == "seamless": #spécialisation de la langue pour seamless
+            generate_kwargs["tgt_lang"] = "fra"
+        # pour "kyutai", on laisse generate_kwargs vide (pas de langue spécialisée)
+
+        with torch.no_grad():
+            predicted_ids = model.generate(**inputs, **generate_kwargs)
+
+    #DECODAGE (tokens audio -> texte)
     transcription = processor.batch_decode(predicted_ids, skip_special_tokens=True)
 
-    end_time = time.perf_counter()
+    return transcription
 
-    duree = end_time - start_time
+def _translate_one_batch_speechbrain(app, nom_model, batch, type_modele):
+    #RECUPERATION DES DONNEES AUDIO
+    liste_audio_data = [chunk.get_audio_data() for chunk in batch]
 
-    return transcription, duree
-
-def translate_one_batch_with_wav2vec(app, nom_model, batch:list[Chunk_audio]):
-    if len(batch) == 0:
-        logging.warning("translate_one_batch_with_wav2vec: batch is empty")
-        return [], 0
-
-    processor = app.state.models[nom_model]["processor"]
+    #RECUPERATION DU MODELE
     model = app.state.models[nom_model]["model"]
 
-
-    liste_audio_data = [chunk.get_audio_data() for chunk in batch]
-    sampling_rate = batch[0].sr
-
-
-    start_time = time.perf_counter()
-    inputs = processor(liste_audio_data, sampling_rate=sampling_rate, return_tensors="pt", attention_mask=True)
-    inputs = {k: v.to(device) for k, v in inputs.items()}
-    
-    with torch.no_grad():
-        logits = model(**inputs).logits
-    
-    predicted_ids = torch.argmax(logits, dim=-1)
-    transcription = processor.batch_decode(predicted_ids)
-    end_time = time.perf_counter()
-
-    duree = end_time - start_time
-
-    return transcription, duree
-
-
-
-def translate_one_batch_with_kyutai(app, nom_model, batch:list[Chunk_audio]):
-    if len(batch) == 0:
-        logging.warning("translate_one_batch_with_kyutai: batch is empty")
-        return [], 0
-
-    processor = app.state.models[nom_model]["processor"]
-    model = app.state.models[nom_model]["model"]
-    
-    liste_audio_data = [chunk.get_audio_data() for chunk in batch]
-    sampling_rate = batch[0].sr
-
-    start_time = time.perf_counter()
-    inputs = processor(liste_audio_data, sampling_rate=sampling_rate, return_tensors="pt", attention_mask=True)
-    inputs = {k: v.to(device) for k, v in inputs.items()}
-
-    with torch.no_grad():
-        predicted_ids = model.generate(**inputs,)
-    transcription = processor.batch_decode(predicted_ids, skip_special_tokens=True)
-    end_time = time.perf_counter()
-
-    duree = end_time - start_time
-
-    return transcription, duree
-
-
-
-def translate_one_batch_with_speechbrain_seq2seq(app, nom_model, batch:list[Chunk_audio]):
-    if len(batch) == 0:
-        logging.warning("translate_one_batch_with_speechbrain: batch is empty")
-        return [], 0
-
-
-    
-    model = app.state.models[nom_model]["model"]
-
-    start_time = time.perf_counter()
-
-    liste_audio_data = [chunk.get_audio_data() for chunk in batch]
+    #TENSORIFICATION
     audio_array = np.array(liste_audio_data)
     waveform = torch.tensor(audio_array, dtype=torch.float32).to(device)
-    wav_lengths = torch.tensor([waveform.shape[1]]).to(device)
+    wav_lengths = torch.tensor([len(a) for a in liste_audio_data], dtype=torch.int32).to(device)
 
-    with torch.no_grad():
-        transcription = model.transcribe_batch(waveform, wav_lengths)
+    if type_modele == "speechbrain_seq2seq": #EncoderDecoder ASR 
+        #(PROCESSING + TOKENISATION + DECODAGE)
+        #(audio -> texte)
+        transcription = model.transcribe_batch(waveform, wav_lengths) 
+        transcription = [transcription[0][i] for i in range(len(transcription[0]))] #On ne garde que le texteet pas les ids_tokens
 
-    
-    transcription = [transcription[0][i] for i in range(len(transcription[0]))]
+    elif type_modele == "speechbrain_ctc": #Encoder ASR
+        #(PROCESSING + TOKENISATION)
+        #(audio -> tokens audio)
+        with torch.no_grad():
+            encoded = model.encode_batch(waveform, wav_lengths)
+        pred_ids = encoded.argmax(dim=-1)  # (batch, seq_len)
 
-    end_time = time.perf_counter()
-    duree = end_time - start_time
-    
-    return transcription, duree
+        #DECODAGE (à la main)
+        # (tokens audio -> texte)
+        transcription = []
+        blank_id = 0
 
-
-def translate_one_batch_with_speechbrain_ctc(app, nom_model, batch: list[Chunk_audio]):
-    if len(batch) == 0:
-        logging.warning("translate_one_batch_with_speechbrain_ctc: batch is empty")
-        return [], 0
-
-    model = app.state.models[nom_model]["model"]
-
-    start_time = time.perf_counter()
-
-    # Préparer les données audio
-    liste_audio_data = [chunk.get_audio_data() for chunk in batch]
-    audio_array = np.array(liste_audio_data)
-    waveform = torch.tensor(audio_array, dtype=torch.float32).to(device)
-    wav_lengths = torch.tensor([waveform.shape[1]]).to(device)
-
-    with torch.no_grad():
-        encoded = model.encode_batch(waveform, wav_lengths)
-
-    pred_ids = encoded.argmax(dim=-1)  # (batch, seq_len)
-
-    transcription = []
-    blank_id = 0
-
-    for ids in pred_ids:
         # Décodage CTC : supprimer blanks et répétitions
         new_ids = []
         previous = None
-        for i in ids.tolist():
+        for i in pred_ids.tolist():
             if i != blank_id and i != previous:
                 new_ids.append(i)
             previous = i
         transcription.append(model.tokenizer.decode_ids(new_ids))
 
-
-    end_time = time.perf_counter()
-    duree = end_time - start_time
-
-    return transcription, duree
-
-def translate_one_batch_with_seamless(app, nom_model, batch: list[Chunk_audio]):
-    if len(batch) == 0:
-        logging.warning("translate_one_batch_with_seamless: batch is empty")
-        return [], 0
-
-    processor = app.state.models[nom_model]["processor"]
-    model = app.state.models[nom_model]["model"]
-    
-    liste_audio_data = [chunk.get_audio_data() for chunk in batch]
-    sampling_rate = batch[0].sr
-
-    start_time = time.perf_counter()
-    inputs = processor(audios=liste_audio_data, sampling_rate=sampling_rate, return_tensors="pt", attention_mask=True)
-    inputs = {k: v.to(device) for k, v in inputs.items()}
-
-    with torch.no_grad():
-        predicted_ids = model.generate(**inputs, tgt_lang="fra")
-    transcription = processor.batch_decode(predicted_ids, skip_special_tokens=True)
-    end_time = time.perf_counter()
-
-    duree = end_time - start_time
-
-    return transcription, duree
+    return transcription

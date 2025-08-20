@@ -63,16 +63,39 @@ def load_model(app, model):
         return
     
     type_modele = find_type_modele(model)
+    vrai_modele = find_vrai_modele(model)
+
+    start_time = time.perf_counter()
+
     if type_modele in  ("whisper", "kyutai", "seamless"):
-        load_model_whisper(app, model)
+        processor = AutoProcessor.from_pretrained(vrai_modele)
+        modele = AutoModelForSpeechSeq2Seq.from_pretrained(vrai_modele)
+        modele = modele.to(device)
+        
+        _ = modele.eval() #Forcer le chargement complet du modèle  
+        app.state.models[model] = {"processor": processor, "model": modele}
+
+
     elif type_modele == "wav2vec2":
-        load_model_wav2vec(app, model)
+        processor = Wav2Vec2Processor.from_pretrained(vrai_modele)
+        modele = Wav2Vec2ForCTC.from_pretrained(vrai_modele)
+        modele = modele.to(device)
+        _ = modele.eval() #Forcer le chargement complet du modèle  
+        app.state.models[model] = {"processor": processor, "model": modele}
+
+
     elif type_modele in ("speechbrain_seq2seq", "speechbrain_ctc"):
-        load_model_speechbrain(app, model)
+        modele = EncoderDecoderASR.from_hparams(source=vrai_modele, savedir=f"pretrained_models/{model}", run_opts={"device":device})
+
+        _ = modele.eval()
+        app.state.models[model] = {"model": modele}
+
     else:
         raise ValueError(f"Le modèle {model} n'est pas supporté")
-        
-    logging.info(f"Le modèle {model} a été chargé")
+    
+    end_time = time.perf_counter()
+    duree_chargement = end_time - start_time
+    logging.info(f"Model {model} loaded in {duree_chargement:.2f}s on {device}")
 
 def load_model_whisper(app, model):
     vrai_modele = find_vrai_modele(model)
