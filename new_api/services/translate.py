@@ -130,7 +130,8 @@ def _translate_one_batch_speechbrain(app, nom_model, batch, type_modele):
     if type_modele == "speechbrain_seq2seq": #EncoderDecoder ASR 
         #(PROCESSING + TOKENISATION + DECODAGE)
         #(audio -> texte)
-        transcription = model.transcribe_batch(waveform, wav_lengths) 
+        with torch.no_grad():
+            transcription = model.transcribe_batch(waveform, wav_lengths) 
         transcription = [transcription[0][i] for i in range(len(transcription[0]))] #On ne garde que le texteet pas les ids_tokens
 
     elif type_modele == "speechbrain_ctc": #Encoder ASR
@@ -146,12 +147,15 @@ def _translate_one_batch_speechbrain(app, nom_model, batch, type_modele):
         blank_id = 0
 
         # Décodage CTC : supprimer blanks et répétitions
-        new_ids = []
-        previous = None
-        for i in pred_ids.tolist():
-            if i != blank_id and i != previous:
-                new_ids.append(i)
-            previous = i
+        for ids in pred_ids.tolist():
+
+            new_ids = []
+            previous = None
+            for i in ids:
+                if i != blank_id and i != previous:
+                    new_ids.append(i)
+                previous = i
+
         transcription.append(model.tokenizer.decode_ids(new_ids))
 
     return transcription

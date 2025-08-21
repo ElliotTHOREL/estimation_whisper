@@ -89,6 +89,12 @@ def delete_model(model:str):
             INNER JOIN modele ON audio_model_results.id_model = modele.id
             WHERE modele.name = %s
         """, (model,))
+        cursor.execute("""
+            DELETE results_model
+            FROM results_model
+            INNER JOIN modele ON results_model.id_model = modele.id
+            WHERE modele.name = %s
+        """, (model,))
         cursor.execute("DELETE FROM modele WHERE name = %s", (model,))
 
 
