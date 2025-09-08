@@ -1,249 +1,123 @@
-# 🎙️ Système d'Évaluation Whisper avec API
-
-Système complet d'évaluation des modèles Whisper d'OpenAI avec architecture microservices séparée.
-
-## 🏗️ Architecture
-
-**Principe clé** : Séparation complète entre les modèles et les évaluations
+## PRESENTATION GENERALE
+
+ Projet destinée à l'estimation des modèles speech-to-text huggingface.
+
+## UTILISATION RAPIDE
+
+### Mise en place
+
+#### Set up (première utilisation sur une machine)
+- cloner le repo : `git clone https://github.com/ElliotTHOREL/estimation_whisper.git`
+- créer un venv : `python -m venv venv_ml`
+- activer le venv : `source .../estimattion_Whisper/venv_ml/bin/activate`
+- télécharger les requirements : `pip install -r requirements.txt`
+- créer un `.env` et le compléter accordément à partir du `.env.example`
+
+
+#### Lancement du projet (A chaque utilisation)
+- activer le venv : `source .../estimattion_Whisper/venv_ml/bin/activate`
+- créer/allumer la base de données : `docker compose up`
+- lancer l'api : `python new_api/main.py`
+- lancer le frontend : `streamlit run frontend/main.py`
+=> Il est alors possible d'accéder au front ainsi qu'au swagger docs
+
+### Utilisation
+
+#### Ajout de data de test
+- Créer un dossier : exemple (nouveaux_audio)
+- Mettre tous les nouveaux audios dans un dossier `nouveaux_audio/clips` (le nom **"clips"** est important)
+- Créer un fichier **.tsv** de métadonnées et le mettre dans le dossier "nouveaux audios"
+  - ce dossier doit avoir une ligne par audio et au moins 2 colonnes 
+    - `path` : le nom de l'audio (par exemple pour l'audio  `nouveaux_audio/clips/mon_audio.m4a` -> `mon_audio.m4a`)
+    - `sentence` : la transcription réelle de l'audio ou `TDB` si elle n'est pas connue
+- Utiliser la route post `/batch_audio_database/load` du swagger docs
+  - `nom` = Un nom qui sera utilisée par la suite pour se référer à cet ensemble d'audios
+  - `path` = `.../nouveaux_audios/clips`
+  - `path_fichier_metadonnees` = `.../nouveaux_audios/_.tsv`
+  
+
+#### Ajout de modèles speech-to-text
+
+Dans l'état actuel, le projet garantit son fonctionnement sur 17 "modèles de base" consulatables dans `new_api/services/database/base_models.json`
+Il est également possible d'ajouter d'autres modèles...
+
+##### Ajout des modèles de base
+- Via le swagger, utiliser la route post `/modeles_database/add_all_base_models`
+
+##### Ajout d'autres modèles
+- Via le swagger, utiliser la route post `/modeles_database/add_one`
+  - `model` : votre nom du modèle
+  - `vrai_modèle` : le nom "hugging_face" du modèle
+  - `type_modèle` : (cf : la route get `/modles_database/types_valides`)
+    - essayer de rattacher le nouveau modèle au bon "type"
+  - `sampling rate` : un paramètre des modèles stt (en général `16 000`)
+
+
+#### Estimation de modèles
+
+##### Via le swagger
+- Consulter les modèles disponibles avec la route get `/modeles_database/all_names`
+- Consulter les batchs audio disponibles avec la route get `/batch_audio_database/`
+- 2 possibilités pour l'estimation :
+  - Estimer **1** modèle: Utiliser la route post `/database_models_results/` avec
+    - le nom du modèle à estimer
+    - le nom du batch audio
+    - le nombre d'audios sur lesquels faire les tests
+    - la paramètre `replace` indique le comportement si les audios ont déjà été transcrits par le modèle
+      - `false` -> l'ancienne transcription est gardée
+      - `true` -> on refait la transcription (utile notamment pour étuider les temps d'exécutions)
+  - Estimer **TOUS** les modèles (**long**): Utiliser la route `/database_models_results/all`
+    - mêmes paramètres que pour **1** modèle 
+
+##### Via le frontend
+- Aller au bas de la page estimations
+- Dans le formulaire "Effectuer de nouvelles estimations", choisir :
+  - le(s) modèle(s) à tester (si aucun modèle n'st sélectionné, tous les modèles seront estimés)
+  - le `batch_audio`
+  - le nombre d'audios
+- Appuyer sur le bouton submit
+
+#### Visualisation
+- Via le frontend
+- Aller dans la page visualisation
+- Sélectionner les estimations à visualiser (il est possible d'utiliser les filtres)
+- Clicker sur "Afficher les graphes"
+
+
+## STRUCTURE GENERALE
+
+### Composants principaux
+
+- Une API (Fast-API)
+- Une Base de données (Maria DB)
+- Un Frontend (Streamlit)
+
+### Détails
+
+#### Base de données
+
+La base de données est constituée de 5 tables
+- batch_audio
+- audio
+- modele
+- audio_model_result (un résultat par audio et par modèle)
+- results_model (un résultat par modèle pour chaque "test" réalisé)
 
-```
-📁 Projet Whisper/
-├── 🔧 API (modèles uniquement)
-│   ├── whisper_api.py      # Serveur FastAPI avec cache
-│   ├── start_api.py        # Script de démarrage
-│   └── README.md           # Documentation API
-├── 🔬 Évaluations (externes)
-│   ├── evaluate_with_api.py     # Script principal d'évaluation
-│   ├── evaluation_with_api.py   # Fonctions d'évaluation
-│   ├── whisper_client.py        # Client HTTP pour l'API
-│   │   ├── metrics.py           # Calcul des métriques
-│   └── plot_eval_results.py     # Génération graphiques
-├── 📊 Données
-│   └── cv-corpus-21.0-delta-2025-03-14/fr/
-└── 📈 Résultats
-    ├── eval_results_20clips/
-    ├── eval_results_21_25/
-    └── eval_results_X_Y_api/
-```
+Chaque table dispose de son CRUD dédié avec
+- un fichier avec les fonctions de modifs dans new_api/services/database
+- un fichier avec les routes correspondantes dans new_api/controllers
 
-## 🚀 Démarrage rapide
+La connexion à la BDD est gérée par un système de pooling (cf new_api/connection.py)
 
-### 1. Installation
+#### Logique métier
 
-```bash
-# Activation de l'environnement
-source whisper_env/bin/activate
+Toute la logique de transcription est essentiellement gérée dasn 2 fichiers:
+ - new_api/services/models.py
+ - new_api/services/translate.py
 
-# Vérification des dépendances
-pip install -r requirements.txt
-```
+models.py permet d'importer le modèle depuis hugging face jusque la RAM / VRAM
+translate.py permet de transcrire un audio avec un modèle importé
 
-### 2. Test de l'architecture
-
-```bash
-# Test complet de l'architecture séparée
-python test_api_architecture.py
-```
-
-### 3. Évaluation complète
-
-```bash
-# Évaluation avec démarrage automatique de l'API
-python evaluate_with_api.py --clips 21-25
-
-# Avec options personnalisées
-python evaluate_with_api.py \
-  --clips 1-10 \
-  --models tiny base large-v3 \
-  --api-url http://localhost:8000 \
-  --output-dir my_eval_results
-```
-
-## 🎯 Utilisation
-
-### Option 1: Évaluation automatique (recommandé)
-
-```bash
-# Le script gère tout automatiquement
-python evaluate_with_api.py --clips 21-25
-```
-
-**Ce qui se passe :**
-1. ✅ Vérifie si l'API est déjà en cours
-2. 🚀 Démarre l'API si nécessaire
-3. 🔬 Évalue tous les modèles
-4. 📈 Génère les graphiques
-5. 🛑 Arrête l'API à la fin
-
-### Option 2: API manuelle + évaluations
-
-```bash
-# Terminal 1: Démarrer l'API
-cd api
-python start_api.py --host 0.0.0.0 --port 8000
-
-# Terminal 2: Lancer les évaluations
-python evaluate_with_api.py --clips 21-25 --api-url http://localhost:8000
-```
-
-### Option 3: Évaluation locale (sans API)
-
-```bash
-# Méthode traditionnelle sans API
-python example_evaluation.py --start 21 --end 25
-```
-
-## 📡 API Whisper
-
-### Endpoints principaux
-
-- `POST /transcribe_file` - Transcription d'un fichier
-- `GET /models` - Liste des modèles disponibles
-- `GET /cache/info` - État du cache
-- `GET /health` - Santé de l'API
-
-### Cache intelligent
-
-- **3 modèles maximum** en mémoire simultanément
-- **Éviction LRU** automatique
-- **Performance optimisée** pour les évaluations répétées
-
-### Documentation complète
-
-```bash
-# Démarrer l'API
-python api/start_api.py
-
-# Accéder à la doc interactive
-open http://localhost:8000/docs
-```
-
-## 🔬 Évaluations
-
-### Métriques calculées
-
-- **WER** (Word Error Rate)
-- **CER** (Character Error Rate)  
-- **MER** (Match Error Rate)
-- **WIL** (Word Information Lost)
-- **BLEU** (Bilingual Evaluation Understudy)
-- **ROUGE-L** (Recall-Oriented Understudy for Gisting Evaluation)
-
-### Modèles supportés
-
-- `tiny` (~39 MB, ~32x vitesse)
-- `base` (~74 MB, ~16x vitesse)
-- `small` (~244 MB, ~6x vitesse)
-- `medium` (~769 MB, ~2x vitesse)
-- `large` (~1550 MB, ~1x vitesse)
-- `large-v3` (~1550 MB, ~1x vitesse, dernière version)
-
-### Formats de sortie
-
-- **JSON** : Prédictions et métriques détaillées
-- **CSV** : Comparaison tabulaire des modèles
-- **PNG** : Graphiques barplots par métrique
-
-## 🔧 Configuration
-
-### Variables d'environnement
-
-```bash
-export LANGUE=fr                    # Langue par défaut
-export WHISPER_CACHE_DIR=/tmp/cache # Dossier cache modèles
-```
-
-### Paramètres d'évaluation
-
-```bash
-python evaluate_with_api.py \
-  --clips 1-50 \                    # Range de clips à tester
-  --models tiny base large-v3 \     # Modèles à évaluer
-  --language fr \                   # Langue de transcription
-  --api-url http://localhost:8000 \ # URL de l'API
-  --output-dir results_custom \     # Dossier de sortie
-  --keep-api                        # Garder l'API en cours
-```
-
-## 📊 Exemples de résultats
-
-### Évaluation sur 5 clips (clips 21-25)
-
-| Modèle    | WER   | CER   | BLEU  | Temps moyen |
-|-----------|-------|-------|-------|-------------|
-| large-v3  | 0.245 | 0.089 | 0.756 | 1.8s        |
-| large     | 0.267 | 0.098 | 0.728 | 1.9s        |
-| medium    | 0.289 | 0.112 | 0.698 | 0.8s        |
-| base      | 0.334 | 0.145 | 0.645 | 0.4s        |
-| tiny      | 0.456 | 0.203 | 0.534 | 0.2s        |
-
-### Graphiques générés
-
-- `barplot_avg_wer.png` - Comparaison WER
-- `barplot_avg_cer.png` - Comparaison CER  
-- `barplot_avg_bleu.png` - Comparaison BLEU
-- (et 5 autres métriques)
-
-## 🚨 Avantages de l'architecture API
-
-### ✅ Avant (problèmes)
-
-- Rechargement modèles à chaque évaluation
-- Consommation mémoire excessive
-- Pas de réutilisation entre évaluations
-- Couplage fort modèles/évaluations
-
-### ✅ Après (solutions)
-
-- **Cache intelligent** : Modèles restent en mémoire
-- **Réutilisation** : Un modèle sert plusieurs évaluations
-- **Séparation** : API modèles ↔ Scripts évaluations
-- **Scalabilité** : API peut servir plusieurs clients
-
-### Performance
-
-```bash
-# Sans API: 6 modèles × 5 clips = 30 chargements
-# Avec API: 6 modèles × 1 chargement = 6 chargements (cache)
-# Gain: ~80% de temps de chargement
-```
-
-## 🔍 Debugging
-
-### Vérification API
-
-```bash
-# API disponible ?
-curl http://localhost:8000/health
-
-# Modèles en cache ?
-curl http://localhost:8000/cache/info
-
-# Test transcription
-curl -X POST http://localhost:8000/transcribe_file \
-  -F "file_path=cv-corpus-21.0-delta-2025-03-14/fr/clips/common_voice_fr_41911225.mp3" \
-  -F "model_size=tiny"
-```
-
-### Logs détaillés
-
-```bash
-# API avec logs debug
-python api/start_api.py --log-level debug
-
-# Évaluation avec traces
-python evaluate_with_api.py --clips 21-22 --models tiny
-```
-
-## 🤝 Contribuer
-
-Le système est modulaire et extensible :
-
-- **Nouvelles métriques** : Ajouter dans `evaluation/code/metrics.py`
-- **Nouveaux modèles** : Modifier `whisper_models.py`
-- **Nouvelles visualisations** : Étendre `plot_eval_results.py`
-- **Nouveaux endpoints** : Ajouter dans `api/whisper_api.py`
-
-## 📝 Licence
-
-Projet d'évaluation des modèles Whisper pour la recherche académique. 
+Ces 2 fichiers fonctionnent en adaptant le code au "type" du modèle. 
+Pour les modèles basiques, il est possible de directement l'utiliser en utilisant une des pipelines existantes (probablement whisper ou wav2vec2)
+Pour les modèles plus exotiques, il faut coder les fonctions nécessaires (+ éventullement faire les imports pip et touiller...)

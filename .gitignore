@@ -27,6 +27,7 @@ venv/
 env/
 ENV/
 venv_ml/
+venv2/
 
 # IDE
 .vscode/

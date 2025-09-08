@@ -1,12 +1,10 @@
 from dotenv import load_dotenv
 import os
-
 load_dotenv()
 os.environ["HF_HOME"] = os.getenv("HF_HOME")
 
 
 import uvicorn
-
 
 
 from log_config import log_config
@@ -33,7 +31,7 @@ if __name__ == "__main__":
     uvicorn.run(
         "main:app",
         host="0.0.0.0", 
-        port=5005,
+        port=int(os.getenv('PORT_API')),
         reload=False, # Pour le développement
         log_config=log_config
     )
